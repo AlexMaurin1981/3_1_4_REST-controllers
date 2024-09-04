@@ -1,6 +1,6 @@
-package REST_controller.boot_security.demo.service;
+package REST_controller.demo.service;
 
-import REST_controller.boot_security.demo.entetie.User;
+import REST_controller.demo.entetie.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 

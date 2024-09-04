@@ -1,7 +1,7 @@
-package REST_controller.boot_security.demo.service;
+package REST_controller.demo.service;
 
-import REST_controller.boot_security.demo.entetie.User;
-import REST_controller.boot_security.demo.reposotorie.UserRepository;
+import REST_controller.demo.entetie.User;
+import REST_controller.demo.reposotorie.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

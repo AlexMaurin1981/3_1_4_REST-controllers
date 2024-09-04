@@ -1,7 +1,7 @@
-package REST_controller.boot_security.demo;
+package REST_controller.demo;
 
-import REST_controller.boot_security.demo.entetie.Role;
-import REST_controller.boot_security.demo.reposotorie.RoleRepository;
+import REST_controller.demo.entetie.Role;
+import REST_controller.demo.reposotorie.RoleRepository;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

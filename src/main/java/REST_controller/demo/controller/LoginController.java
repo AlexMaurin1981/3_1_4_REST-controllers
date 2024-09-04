@@ -1,4 +1,4 @@
-package REST_controller.boot_security.demo.controller;
+package REST_controller.demo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

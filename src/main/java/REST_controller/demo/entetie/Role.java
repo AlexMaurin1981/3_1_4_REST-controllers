@@ -1,4 +1,4 @@
-package REST_controller.boot_security.demo.entetie;
+package REST_controller.demo.entetie;
 
 import org.springframework.security.core.GrantedAuthority;
 

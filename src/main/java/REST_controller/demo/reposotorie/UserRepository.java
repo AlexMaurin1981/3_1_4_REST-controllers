@@ -1,6 +1,6 @@
-package REST_controller.boot_security.demo.reposotorie;
+package REST_controller.demo.reposotorie;
 
-import REST_controller.boot_security.demo.entetie.User;
+import REST_controller.demo.entetie.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

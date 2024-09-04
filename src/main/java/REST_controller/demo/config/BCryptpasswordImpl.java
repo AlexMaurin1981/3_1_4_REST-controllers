@@ -1,4 +1,4 @@
-package REST_controller.boot_security.demo.config;
+package REST_controller.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

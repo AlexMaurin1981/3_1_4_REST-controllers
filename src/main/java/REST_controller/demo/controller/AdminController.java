@@ -1,10 +1,10 @@
-package REST_controller.boot_security.demo.controller;
+package REST_controller.demo.controller;
 
 
 
-import REST_controller.boot_security.demo.entetie.User;
-import REST_controller.boot_security.demo.service.RoleService;
-import REST_controller.boot_security.demo.service.UserService;
+import REST_controller.demo.entetie.User;
+import REST_controller.demo.service.RoleService;
+import REST_controller.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
