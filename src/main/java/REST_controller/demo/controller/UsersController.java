@@ -4,16 +4,17 @@ package REST_controller.demo.controller;
 import REST_controller.demo.entetie.User;
 import REST_controller.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 import java.security.Principal;
 
 
-@Controller
+@RestController
 @RequestMapping("/user")
 public class UsersController {
 
@@ -24,13 +25,8 @@ public class UsersController {
         this.userService = userService;
     }
 
-    @GetMapping
-    public String showUser(Principal principal, Model model) {
-        User user = userService.getUserByEmail(principal.getName());
-        model.addAttribute("user", user);
-        model.addAttribute("role", user.getRoles());
-
-
-        return "user/user";
+    @GetMapping("/user")
+    public User showUser(Principal principal) {
+        return userService.getUserByEmail(principal.getName());
     }
 }

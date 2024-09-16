@@ -1,5 +1,6 @@
 package REST_controller.demo.entetie;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
@@ -14,6 +15,7 @@ public class Role implements GrantedAuthority {
  private String nameRole;
  @Column(name = "users")
  @ManyToMany(mappedBy = "roles")
+ @JsonIgnore
  private Set<User> users;
 
  public Role() {

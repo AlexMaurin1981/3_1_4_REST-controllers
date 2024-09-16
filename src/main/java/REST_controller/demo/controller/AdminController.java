@@ -6,15 +6,14 @@ import REST_controller.demo.entetie.User;
 import REST_controller.demo.service.RoleService;
 import REST_controller.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-import java.security.Principal;
+
+import java.util.List;
 
 
-@Controller
+@RestController
 @RequestMapping("/admin")
 public class AdminController {
   final private UserService userService;
@@ -26,34 +25,28 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @GetMapping
+    @GetMapping("/users")
 
-    public String showAllUsers(Model model, Principal principal) {
-        User user = userService.getUserByEmail(principal.getName());
-        model.addAttribute("user", user);
-        model.addAttribute("helloUser", principal.getName());
-        model.addAttribute("allUsers", userService.getAllUsers());
-        model.addAttribute("newUser", new User());
-        model.addAttribute("role",roleService.getRoles());
-        return "admin/adminPanel";
+    public List<User> showAllUsers() {
+
+        return userService.getAllUsers();
     }
-    @PostMapping("/update")
-    public String updateUser (@ModelAttribute("user") User user) {
-        userService.updateUser(user);
-        return "redirect:/admin";
+    @PutMapping("/users")
+    public User updateUser (@RequestBody User user) {
+        return userService.updateUser(user);
     }
 
-    @PostMapping()
-    public String saveUser(@ModelAttribute("newUser") User user) {
+    @PostMapping("/users")
+    public String saveUser(@RequestBody User user) {
 
         userService.saveUser(user);
         return "redirect:/admin";
     }
 
-    @PostMapping("/{id}")
-    public String deleteUser (@PathVariable("id") long id) {
-       userService.deleteUserById(id);
-        return "redirect:/admin";
+    @DeleteMapping("/users/{id}")
+    public User deleteUser (@PathVariable("id") long id) {
+
+        return  userService.deleteUserById(id);
     }
 
 

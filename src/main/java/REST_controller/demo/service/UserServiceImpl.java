@@ -45,13 +45,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional
-    public void deleteUserById(Long id) {
+    public User deleteUserById(Long id) {
         userRepository.deleteById(id);
+        return null;
     }
 
     @Override
     @Transactional
-    public void updateUser(User updateUser) {
+    public User updateUser(User updateUser) {
         User user = userRepository.findById(updateUser.getId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
         String currentPassword = user.getPassword();
         String newPassword = updateUser.getPassword();
@@ -59,6 +60,7 @@ public class UserServiceImpl implements UserService {
             updateUser.setPassword((bCryptPasswordEncoder.encode(updateUser.getPassword())));
         }
         userRepository.save(updateUser);
+        return user;
     }
     @Override
     public List<User> getAllUsers() {
