@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -53,7 +54,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public User updateUser(User updateUser) {
-        User user = userRepository.findById(updateUser.getId()).orElseThrow(() -> new IllegalArgumentException("User not found"));
+        User user = userRepository.findById(updateUser.getId()).orElseThrow(()->new IllegalArgumentException("User not found"));
         String currentPassword = user.getPassword();
         String newPassword = updateUser.getPassword();
         if (!currentPassword.equals(newPassword)) {

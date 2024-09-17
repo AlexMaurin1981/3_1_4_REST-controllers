@@ -15,12 +15,11 @@
 <nav class="navbar navbar-dark bg-dark">
 
     <div class="container-fluid">
-        <span class="navbar-text">
-           <h5 class="text-white bg-dark">
-               <strong th:text="${user.getEmail()}"></strong>
-                    with roles:
-                        <tr th:each="role : ${role}" th:text="${role.toString()}"></tr></h5>
-        </span>
+        <div class="navbar-text text-white bg-dark h5">
+<!--               <strong th:text="${user.getEmail()}"></strong>-->
+<!--                    with roles:-->
+<!--                        <tr th:each="role : ${role}" th:text="${role.toString()}"></tr></h5>-->
+        </div>
         <form th:method="GET" th:action="@{/logout}">
             <button class="btn btn-outline-light border-0 text-secondary w-100"  type="submit">Logout</button>
         </form>
@@ -54,14 +53,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr th:each="user : ${user}"/>
-                                        <td><p th:text="${user.getId()}"/></td>
-                                        <td><p th:text="${user.getFirstName()}"/></td>
-                                        <td><p th:text="${user.getLastName()}"/></td>
-                                        <td><p th:text="${user.getAge()}"/></td>
-                                        <td><p th:text="${user.getEmail()}"/></td>
-                                        <td><p-0 th:each= "user :${user.getRoles()}" th:text="${user.toString()}"/></td>
-                                        </tr>
+<!--                                        <tr th:each="user : ${user}"/>-->
+<!--                                        <td><p th:text="${user.getId()}"/></td>-->
+<!--                                        <td><p th:text="${user.getFirstName()}"/></td>-->
+<!--                                        <td><p th:text="${user.getLastName()}"/></td>-->
+<!--                                        <td><p th:text="${user.getAge()}"/></td>-->
+<!--                                        <td><p th:text="${user.getEmail()}"/></td>-->
+<!--                                        <td><p-0 th:each= "user :${user.getRoles()}" th:text="${user.toString()}"/></td>-->
+<!--                                        </tr>-->
 
                                     </tbody>
                                 </table>
@@ -75,26 +74,16 @@
 
 
 <script>
-    const API = "http://localhost:8080/user/user";
-    const card = document.querySelector(".card-body");
+   function getUser(){
+       fetch("user/")
+           .then(response => response.json())
+           .then(data => {
+               console.log(data)
+           })
+           .catch(error => console.log(error))
+   }
 
-    function getPosts() {
-        fetch(API)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.error('There was a problem with the fetch operation:', error);
-            });
-    }
-
-    getPosts();
+   getUser()
 
 </script>
 
