@@ -28,8 +28,10 @@ public class UsersController {
     }
 
     @GetMapping("/")
-    public User showUser(Principal principal) {
-         return  userService.getUserByEmail(principal.getName());
+    public ResponseEntity <User> showUser(Principal principal) {
+       User user= userService.getUserByEmail(principal.getName());
+        return new  ResponseEntity<>(user, HttpStatus.OK);
+
     }
 
 
