@@ -75,10 +75,6 @@
 
                                                                 <!--- Update Modal-->
 
-<!--                                                                <td>-->
-<!--                                                                    <button type="button" data-bs-toggle="modal" class="btn btn-info" attr="data-bs-target=${'#editModal'+user.getId()}">-->
-<!--                                                                            Edit-->
-<!--                                                                    </button>-->
 <!--                                                                    <div class="modal fade" attr="id=${'editModal'+user.getId()}"  tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">-->
 <!--                                                                        <div class="modal-dialog modal-dialog-centered modal-sm">-->
 <!--                                                                            <div class="modal-content">-->
@@ -145,11 +141,8 @@
                                                                 </td>
 
                                                             <!--- DELETE USER BUTTON --->
-<!--                                                                <td>-->
-<!--&lt;!&ndash;                                                                    <button type="button" data-bs-toggle="modal" class="btn btn-danger" th:attr="data-bs-target=${'#deleteModal'+user.id}">&ndash;&gt;-->
-<!--                                                                        Delete-->
-<!--                                                                    </button>-->
-<!--&lt;!&ndash;                                                                    <div th:attr="id=${'deleteModal'+user.id}" class="modal fade" tabindex="-1">&ndash;&gt;-->
+<!--
+<!--                                                                    <div th:attr="id=${'deleteModal'+user.id}" class="modal fade" tabindex="-1">&ndash;&gt;-->
 <!--                                                                        <div class="modal-dialog modal-dialog-centered modal-sm">-->
 <!--                                                                            <div class="modal-content">-->
 <!--                                                                                <div class="modal-header bg-light">-->
@@ -338,7 +331,20 @@
                           <td>${user.age}</td>
                           <td>${user.email}</td>
                           <td>${roles.replace('ROLE_', ' ') + ' '}</td>
+                          <td>
+                         <button type="button" data-bs-toggle="modal" class="btn btn-info" id="buttonEdit" attr="data-bs-target=${'#editModal' + user.id}">
+                         Edit
+                         </button>
+                        </td>
+                        <td>
+                         <button type="button" data-bs-toggle="modal" class="btn btn-danger" id ="buttonDelete" attr="data-bs-target=${'#deleteModal' + user.id}">
+                         Delete
+                         </button>
+                        </td>
                           <tr>
+
+
+
                           `
 
                     })
