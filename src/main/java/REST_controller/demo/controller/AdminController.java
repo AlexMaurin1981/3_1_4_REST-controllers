@@ -8,10 +8,11 @@ import REST_controller.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 
-
+import java.security.Principal;
 import java.util.List;
 
 
@@ -32,6 +33,16 @@ public class AdminController {
         List <User>user=userService.getAllUsers();
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
+    @GetMapping("/users/{id}")
+    public ResponseEntity<User> showUser(@PathVariable("id") long id) {
+       User user =userService.getUserById(id);
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+    @GetMapping("users/user")
+    public ResponseEntity<User> getUser(@AuthenticationPrincipal User user){
+        return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
     @PutMapping("/users")
     public User updateUser (@RequestBody User user) {
         return userService.updateUser(user);

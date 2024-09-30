@@ -15,12 +15,12 @@
 <nav class="navbar navbar-dark bg-dark">
 
     <div class="container-fluid">
-        <div class="navbar-text text-white bg-dark h5" id="newNavbar" >
-
-        </div>
-        <form th:method="GET" th:action="@{/logout}">
-            <button class="btn btn-outline-light border-0 text-secondary w-100"  type="submit">Logout</button>
-        </form>
+        <div class="navbar-text text-white bg-dark h5" id="newNavbar" ></div>
+        <ul class="navbar-nav">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link px-3" href="/logout">Logout</a>
+            </li>
+        </ul>>
     </div>
 </nav>
 <div class="container-fluid">
