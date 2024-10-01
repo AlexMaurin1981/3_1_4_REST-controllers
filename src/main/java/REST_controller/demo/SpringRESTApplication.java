@@ -10,16 +10,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
-public class SpringBootSecurityDemoApplication {
+public class SpringRESTApplication {
 
 	private final RoleRepository roleRepository;
 
-	public SpringBootSecurityDemoApplication(RoleRepository roleRepository) {
+	public SpringRESTApplication(RoleRepository roleRepository) {
 		this.roleRepository = roleRepository;
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootSecurityDemoApplication.class, args);
+		SpringApplication.run(SpringRESTApplication.class, args);
 	}
 
 	public List<Role> getRole(String nameRole) {

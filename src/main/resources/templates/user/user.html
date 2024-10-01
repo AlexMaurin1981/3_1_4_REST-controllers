@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,9 +70,9 @@
        fetch("user/")
            .then(response => response.json())
            .then(user => {
-               const roles = user.roles.map(role => role.nameRole).join(" ")
+               const roles = user.roles.map(role => role.nameRole.replace('ROLE_', '')).join(', ')
                console.log(user)
-               newNavbar = `<h5><strong>${user.email} with roles: ${roles.replace('ROLE_', ' ') + ' '}</strong></h5>`
+               newNavbar = `<h5><strong>${user.email} with roles: ${roles}</strong></h5>`
                userInfo.innerHTML = newNavbar
 
                u = `
@@ -83,7 +82,7 @@
                                <td>${user.lastName}</td>
                                <td>${user.age}</td>
                                <td>${user.email}</td>
-                               <td> ${roles.replace('ROLE_', ' ') + ' '}</td>
+                               <td> ${roles}</td>
                            </tr>
                            `
                table.innerHTML = u
