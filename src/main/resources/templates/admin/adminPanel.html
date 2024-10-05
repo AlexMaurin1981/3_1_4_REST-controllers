@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,76 +73,70 @@
 
 
 
-                                                        <!--- Update Modal-->
+                                                        <!--- Update Modal --->
 
-<!--                                                        <td>-->
-<!--                                                            <button type="button" data-bs-toggle="modal" class="btn btn-info" th:attr="data-bs-target=${'#editModal'+user.getId()}">-->
-<!--                                                                Edit-->
-<!--                                                            </button>-->
-<!--                                                            <div class="modal fade" th:attr="id=${'editModal'+user.getId()}"  tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">-->
-<!--                                                                <div class="modal-dialog modal-dialog-centered modal-sm">-->
-<!--                                                                    <div class="modal-content">-->
-<!--                                                                        <div class="modal-header bg-light">-->
-<!--                                                                            <h5 class= "modal-title" id="editModalLabel" >Edit user</h5>-->
-<!--                                                                            <button type="button"-->
-<!--                                                                                    class="btn-close"-->
-<!--                                                                                    data-bs-dismiss="modal" aria-label="Close">-->
-<!--                                                                            </button>-->
-<!--                                                                        </div>-->
-<!--                                                                        <div class="modal-body fw-bold">-->
+                                                        <td>
+                                                            <div class="modal fade" id="modalEdit" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-dialog-centered modal-sm">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header bg-light">
+                                                                            <h5 class= "modal-title"  >Edit user</h5>
+                                                                            <button type="button"
+                                                                                    class="btn-close"
+                                                                                    data-bs-dismiss="modal" aria-label="Close">
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body fw-bold">
 
-<!--                                                                            <form th:method="Post" th:action="@{/admin/update}" th:object="${user}">-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="'id_edit'+${user.getId()}" class="form-label">ID</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="text" class="form-control" name="id" th:id="'id_edit'+${user.getId()}" th:value="${user.id}"   readonly>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="'firstname_edit'+${user.getId()}" class="form-label">First name</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="text" class="form-control"  name="fistName" th:id="'firstname_edit'+${user.getId()}" th:value="${user.firstName}">-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for ="'surname_edit'+${user.getId()}" class="form-label">Last name</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="text" class="form-control" name="lastName" th:id="'surname_edit'+${user.getId()}" th:value="${user.lastName}">-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="'age_edit'+${user.getId()}" class="form-label">Age</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="number" class="form-control" name="age" th:id="'age_edit'+${user.getId()}"  th:value="${user.age}">-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="'email_edit'+${user.getId()}" class="form-label">Email</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="email" class="form-control" name="email" th:id="'email_edit'+${user.getId()}" th:value="${user.email}">-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="'password_edit'+${user.getId()}"  class="form-label">Password</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="password" class="form-control"name="password" th:id="'password_edit'+${user.getId()}" th:value="${user.password}">-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="'role_edit'+${user.getId()}" class="form-label">Role</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <select class="form-select form-select-sm" name="role" th:id="'role_edit'+${user.getId()}"  size=2 th:field="${user.roles}" multiple>-->
-<!--                                                                                        <option th:each="role : ${role}"-->
-<!--                                                                                                th:value="${role.getId()}"-->
-<!--                                                                                                th:text="${role.toString()}">-->
-<!--                                                                                        </option>-->
-<!--                                                                                    </select>-->
-<!--                                                                                    <br>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="modal-footer">-->
-<!--                                                                                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--                                                                                    <button type="submit" class="btn btn-primary">Edit</button>-->
-<!--                                                                                </div>-->
-<!--                                                                            </form>-->
-<!--                                                                        </div>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                        </td>-->
+                                                                            <form id="formEditUser">
+                                                                                <div class="form-group">
+                                                                                    <label for="editID" class="form-label">ID</label>
+                                                                                    <br>
+                                                                                    <input type="text" class="form-control" name="id" id="editID"   readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="editFirstName" class="form-label">First name</label>
+                                                                                    <br>
+                                                                                    <input type="text" class="form-control" name="firstName" id="editFirstName" >
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="editLastName" class="form-label">Last name</label>
+                                                                                    <br>
+                                                                                    <input type="text" class="form-control" name="lastName" id="editLastName">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="editAge" class="form-label">Age</label>
+                                                                                    <br>
+                                                                                    <input type="number" class="form-control" name="age" id="editAge">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="editEmail" class="form-label">Email</label>
+                                                                                    <br>
+                                                                                    <input type="email" class="form-control" name="email" id="editEmail">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="editPassword"  class="form-label">Password</label>
+                                                                                    <br>
+                                                                                    <input type="password" class="form-control"name="password" id="editPassword">
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="editRole" class="form-label">Role</label>
+                                                                                    <br>
+                                                                                    <select class="form-select form-select-sm"  id="editRole" size=2  multiple>
+
+                                                                                    </select>
+                                                                                    <br>
+                                                                                </div>
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                    <button type="submit" class="btn btn-primary">Edit</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
 
                                                         <!--- DELETE USER BUTTON --->
                                                         <td>
@@ -159,42 +152,42 @@
                                                                             </button>
                                                                         </div>
                                                                         <div class="modal-body fw-bold">
-                                                                            <form id = "deleteUserForm">
+                                                                            <form id = "modalBodyDelete">
 
                                                                                 <div class="form-group">
                                                                                     <label for="deleteID" class="form-label">ID</label>
                                                                                     <br>
-                                                                                    <input type="text" class="form-control" id= "deleteID"  readonly>
+                                                                                    <input type="text" class="form-control" name="id" id= "deleteID"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deleteFirstName" class="form-label">First name</label>
                                                                                     <br>
-                                                                                    <input type="text" class="form-control"  id="deleteFirstName"  readonly>
+                                                                                    <input type="text" class="form-control" name="FirstName"  id="deleteFirstName"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deleteLastName" class="form-label">Last name</label>
                                                                                     <br>
-                                                                                    <input type="text" class="form-control" id="deleteLastName"  readonly>
+                                                                                    <input type="text" class="form-control"name="LastName" id="deleteLastName"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for = "deleteAge" class="form-label" >Age</label>
                                                                                     <br>
-                                                                                    <input type="number" class="form-control" id="deleteAge"  readonly>
+                                                                                    <input type="number" class="form-control"name="age" id="deleteAge"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deleteEmail" class="form-label" >Email</label>
                                                                                     <br>
-                                                                                    <input type="email" class="form-control" id="deleteEmail"  readonly>
+                                                                                    <input type="email" class="form-control"name="email" id="deleteEmail"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deletePassword" class="form-label">Password</label>
                                                                                     <br>
-                                                                                    <input type="password" class="form-control" id="deletePassword"  readonly>
+                                                                                    <input type="password" class="form-control" name="password "id="deletePassword"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deleteRole" class="form-label">Role</label>
                                                                                     <br>
-                                                                                    <select  class="form-control" id="deleteRole" size="2"  multiple readonly>
+                                                                                    <select  class="form-control"  name="role" id="deleteRole" size="2"  multiple readonly>
 
                                                                                     </select>
                                                                                 </div>
@@ -308,35 +301,49 @@
 </div>
 
 <script>
+    console.log('Скрипт загружен и выполняется');
     document.addEventListener('DOMContentLoaded', async function () {
         await fillTableForUsers();
-       await fillTableForUser();
+        await fillTableForUser();
         await addNewUser();
-       await deleteUser();
-
+          updateUser();
+          deleteUser();
     });
 
     // getUser
     async function getUser(id) {
-        let url = `/admin/users/${id}`;
-        let response = await fetch(url);
-        return await response.json();
+        if (!id) {
+            console.error('ID пользователя не определен');
+            return null;
+        }
+        try {
+            const response = await fetch(`admin/${id}`);
+            if (!response.ok) {
+                throw new Error(`Ошибка HTTP: ${response.status}`);
+            }
+            return await response.json();
+        } catch (error) {
+            console.error('Ошибка при получении данных пользователя:', error);
+            return null;
+        }
     }
 
 
+
+
     // fillTableForUsers
-    async function fillTableForUsers() {
-        const allUsers = document.getElementById("tableUsers");
+        async function fillTableForUsers() {
+            const allUsers = document.getElementById("tableUsers");
 
-        fetch("admin/users")
-            .then(response => response.json())
-            .then(data => {
-                if (Array.isArray(data)) {
-                    data.forEach(user => {
-                        const roles = user.roles.map(role => role.nameRole.replace("ROLE_", "")).join(", ");
+            fetch("admin/users")
+                .then(response => response.json())
+                .then(data => {
+                    if (Array.isArray(data)) {
+                        data.forEach(user => {
+                            const roles = user.roles.map(role => role.nameRole.replace("ROLE_", "")).join(", ");
 
-                        allUsers.innerHTML +=
-                            `
+                            allUsers.innerHTML +=
+                                `
                           <tr>
                           <td>${user.id}</td>
                           <td>${user.firstName}</td>
@@ -348,36 +355,35 @@
                                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal"  data-action="edit" data-id="${user.id}" data-target="#edit">Edit</button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-user-id="${user.id}">Delete</button>
-
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"  data-bs-target=#deleteModal" data-user-id="${user.id}">Delete</button>
                              </td>
                         </td>
                           <tr>
                           `
-                    })
-                } else {
-                    console.log("Error: Data is not an array.");
-                }
-            })
-            .catch(error => {
-                console.log("Error: ", error);
-            });
-    }
+                        })
+                    } else {
+                        console.log("Error: Data is not an array.");
+                    }
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                });
+        }
 
-    // fillTableForUser
-    async function fillTableForUser() {
-        const userAdminInfo = document.getElementById("newNavbar");
-        let newNavbar=""
-        const userTable = document.getElementById("tableUser");
-        let u = ""
-        fetch("admin/users/user")
-            .then(response => response.json())
-            .then(user => {
-                const roles = user.roles.map(role => role.nameRole.replace("ROLE_", "")).join(", ");
-                newNavbar = `<h5><strong>${user.email} with roles: ${roles}</strong></h5>`
-                userAdminInfo.innerHTML = newNavbar
-                u =
-                    `<tr>
+        // fillTableForUser
+        async function fillTableForUser() {
+            const userAdminInfo = document.getElementById("newNavbar");
+            let newNavbar = ""
+            const userTable = document.getElementById("tableUser");
+            let u = ""
+            fetch("admin/users/user")
+                .then(response => response.json())
+                .then(user => {
+                    const roles = user.roles.map(role => role.nameRole.replace("ROLE_", "")).join(", ");
+                    newNavbar = `<h5><strong>${user.email} with roles: ${roles}</strong></h5>`
+                    userAdminInfo.innerHTML = newNavbar
+                    u =
+                        `<tr>
                         <td>${user.id}</td>
                         <td>${user.firstName}</td>
                         <td>${user.lastName}</td>
@@ -386,44 +392,44 @@
                         <td>${roles}</td>
                         </tr>
                  `
-                userTable.innerHTML = u;
-            })
-            .catch(error => {
-                console.log("Error: ", error);
-            });
-    }
+                    userTable.innerHTML = u;
+                })
+                .catch(error => {
+                    console.log("Error: ", error);
+                });
+        }
 
-    // switchPanel admin/user
+        // switchPanel admin/user
 
-    const adminTab = document.getElementById('v-pills-admin-tab');
-    const userTab = document.getElementById('v-pills-user-tab');
-    const adminContent = document.getElementById('v-pills-admin');
-    const userContent = document.getElementById('v-pills-user');
+        const adminTab = document.getElementById('v-pills-admin-tab');
+        const userTab = document.getElementById('v-pills-user-tab');
+        const adminContent = document.getElementById('v-pills-admin');
+        const userContent = document.getElementById('v-pills-user');
 
-    // Функция для переключения панелей
-   async function switchPanel(activeTab, inactiveTab, activeContent, inactiveContent) {
-        // Скрываем неактивный контент и убираем активный класс с неактивной вкладки
-        inactiveContent.classList.remove('show', 'active');
-        inactiveTab.classList.remove('active');
+        // Функция для переключения панелей
+        async function switchPanel(activeTab, inactiveTab, activeContent, inactiveContent) {
+            // Скрываем неактивный контент и убираем активный класс с неактивной вкладки
+            inactiveContent.classList.remove('show', 'active');
+            inactiveTab.classList.remove('active');
 
-        // Показываем активный контент и добавляем активный класс к активной вкладке
-        activeContent.classList.add('show', 'active');
-        activeTab.classList.add('active');
-    }
+            // Показываем активный контент и добавляем активный класс к активной вкладке
+            activeContent.classList.add('show', 'active');
+            activeTab.classList.add('active');
+        }
 
-    // Добавляем обработчики событий для вкладок
-    adminTab.addEventListener('click', (event) => {
-        event.preventDefault(); // Предотвращаем переход по ссылке
-        switchPanel(adminTab, userTab, adminContent, userContent);
-    });
+        // Добавляем обработчики событий для вкладок
+        adminTab.addEventListener('click', (event) => {
+            event.preventDefault(); // Предотвращаем переход по ссылке
+            switchPanel(adminTab, userTab, adminContent, userContent);
+        });
 
-    userTab.addEventListener('click', (event) => {
-        event.preventDefault(); // Предотвращаем переход по ссылке
-        switchPanel(userTab, adminTab, userContent, adminContent);
-    });
+        userTab.addEventListener('click', (event) => {
+            event.preventDefault(); // Предотвращаем переход по ссылке
+            switchPanel(userTab, adminTab, userContent, adminContent);
+        });
 
 // new User
-    function addNewUser() {
+       async function addNewUser() {
 
             document.getElementById("newUserForm").addEventListener("submit", async function (event) {
                 event.preventDefault();
@@ -434,8 +440,6 @@
                     email: document.getElementById("newUserEmail").value,
                     password: document.getElementById("newUserPassword").value,
                     roles: Array.from(document.getElementById("newUserRole").selectedOptions).map(option => option.value)
-
-
                 };
 
                 try {
@@ -452,63 +456,151 @@
 
                         document.getElementById("newUserForm").reset(); // Очищаем форму после добавления пользователя
                         document.querySelector('a#nav-home-tab').click(); // Переходим на главную страницу после добавления пользователя
-                        await fillTableForUsers(); // Обновляем таблицу после добавления пользователя
-
-                    } else {
-                        console.error('Error adding user');
-
+                        await fillTableForUsers();
                     }
                 } catch (error) {
-                    console.error('Error:', error);
-                    resolve();
+                    console.error('Error adding user:', error);
                 }
             });
-    }
-      function deleteUser()
-    { const deleteForm = document.forms["deleteUserForm"];
-        deleteForm.addEventListener("submit", async function (event)
-        { event.preventDefault();
-            fetch("admin/users/" + deleteForm.id.value,
-                { method: 'DELETE',
-                    headers:
-                        { 'Content-Type': 'application/json',
-                        }
-                })
-                .then(() =>
-                { $('#modalDeleteClose').click();
-                    return fillTableForUsers();
-                })
-                .catch(error =>
-                { console.error('Error deleting user:', error);
+        }
+
+        // updateUser
+     function updateUser () {
+        // Добавляем обработчик для кнопок редактирования
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('btn-info') && event.target.getAttribute('data-action') === 'edit') {
+                const userId = event.target.getAttribute('data-id');
+                openEditModal(userId);
+            }
+        });
+
+
+        // Функция для открытия модального окна редактирования
+       async function openEditModal(userId) {
+            const editModal = document.getElementById('modalEdit');
+            const modal = new bootstrap.Modal(editModal);
+            fillEditModal(userId);
+            modal.show();
+        }
+
+        // Функция для заполнения модального окна данными пользователя
+        async function fillEditModal(userId) {
+            try {
+                const user = await getUser(userId);
+                document.getElementById('editID').value = user.id;
+                document.getElementById('editFirstName').value = user.firstName;
+                document.getElementById('editLastName').value = user.lastName;
+                document.getElementById('editAge').value = user.age;
+                document.getElementById('editEmail').value = user.email;
+                document.getElementById('editPassword').value = user.password;
+
+                // Заполняем роли
+                const editeRole = document.getElementById('editRole');
+
+                user.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id; // Значение роли
+                    option.textContent = role.nameRole; // Отображаемое имя роли
+                    editeRole.appendChild(option); // Добавляем опцию в селект
                 });
+            } catch (error) {
+                console.error('Ошибка при заполнении формы редактирования:', error);
+            }
+        }
+
+        // Обработчик отправки формы редактирования
+        document.getElementById('formEditUser').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const editedUser = {
+                id: document.getElementById('editID').value,
+                firstName: document.getElementById('editFirstName').value,
+                lastName: document.getElementById('editLastName').value,
+                age: document.getElementById('editAge').value,
+                email: document.getElementById('editEmail').value,
+                password: document.getElementById('editPassword').value,
+                roles: Array.from(document.getElementById('editRole').selectedOptions).map(option => option.value)
+            };
+
+            try {
+                const response = await fetch('/admin/users', {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(editedUser)
+                });
+
+                if (response.ok) {
+                    console.log('Пользователь успешно обновлен');
+                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEdit'));
+                    modal.hide();
+                    await fillTableForUsers(); // Обновляем таблицу пользователей
+                } else {
+                    throw new Error('Ошибка при обновлении пользователя');
+                }
+            } catch (error) {
+                console.error('Ошибка при обновлении пользователя:', error);
+            }
         });
     }
-    $(document).ready(function ()
-    { $('#deleteModal').on("show.bs.modal", function (event)
-    { const button = $(event.relatedTarget);
-        const id = button.data("user-id");
-        return viewDeleteModal(id);
-    })
-    })
-    async function viewDeleteModal(id) {
-        try{
-        let userDelete = await getUser(id);
-        let formDelete = document.forms["deleteUserForm"];
-        formDelete.id.value = userDelete.id;
-        formDelete.firstName.value = userDelete.firstName;
-        formDelete.lastName.value = userDelete.lastName;
-        formDelete.age.value = userDelete.age;
-        formDelete.email.value = userDelete.email;
-        formDelete.password.value = userDelete.password;
-        // formDelete.roles.value = userDelete.roles.map(role => role.id).join(',');
-    }  catch (error) {
-            console.error('Error deleting user:', error);
+
+
+
+    // Функция для открытия модального окна удаления
+    function deleteUser () {
+        document.addEventListener('click', function (event) {
+            if (event.target.classList.contains('btn-danger')) {
+                const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
+                if (userId) {
+                    openDeleteModal(userId); // Открываем модальное окно с данным ID
+                } else {
+                    console.error('ID пользователя не найден в кнопке удаления');
+                }
+            }
+        });
+
+        async function openDeleteModal(userId) {
+            try {
+                const user = await getUser(userId); // Предполагается, что getUser возвращает данные пользователя
+                document.getElementById('deleteID').value = user.id;
+                document.getElementById('deleteFirstName').value = user.firstName;
+                document.getElementById('deleteLastName').value = user.lastName;
+                document.getElementById('deleteAge').value = user.age;
+                document.getElementById('deleteEmail').value = user.email;
+                document.getElementById('deletePassword').value = user.password;
+
+                // Заполняем роли
+                const deleteRole = document.getElementById('deleteRole');
+                deleteRole.innerHTML = ''; // Очищаем предыдущие значения
+                user.roles.forEach(role => {
+                    const option = document.createElement('option');
+                    option.value = role.id; // Значение роли
+                    option.textContent = role.nameRole; // Отображаемое имя роли
+                    deleteRole.appendChild(option); // Добавляем опцию в селект
+                });
+
+                const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                deleteModal.show(); // Открываем модальное окно
+            } catch (error) {
+                console.error('Ошибка при получении данных пользователя:', error);
+            }
         }
     }
 
+    // Добавляем обработчик для кнопок удаления
+
+
+
+
+
 </script>
 
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+
 </body>
 </html>

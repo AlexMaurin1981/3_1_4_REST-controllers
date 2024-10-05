@@ -32,7 +32,7 @@ public class AdminController {
         List <User>user=userService.getAllUsers();
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-    @GetMapping("/users/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<User> showUser(@PathVariable("id") long id) {
        User user =userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
@@ -63,5 +63,7 @@ public class AdminController {
     }
 
 }
+
+
 
 
