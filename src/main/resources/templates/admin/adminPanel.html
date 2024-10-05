@@ -72,8 +72,6 @@
                                                     </thead>
                                                     <tbody id="tableUsers">
 
-                                                    </tbody>
-
 
 
                                                         <!--- Update Modal-->
@@ -148,75 +146,71 @@
 <!--                                                        </td>-->
 
                                                         <!--- DELETE USER BUTTON --->
-<!--                                                        <td>-->
-<!--                                                            <button type="button" data-bs-toggle="modal" class="btn btn-danger" th:attr="data-bs-target=${'#deleteModal'+user.id}">-->
-<!--                                                                Delete-->
-<!--                                                            </button>-->
-<!--                                                            <div th:attr="id=${'deleteModal'+user.id}" class="modal fade" tabindex="-1">-->
-<!--                                                                <div class="modal-dialog modal-dialog-centered modal-sm">-->
-<!--                                                                    <div class="modal-content">-->
-<!--                                                                        <div class="modal-header bg-light">-->
-<!--                                                                            <h5>Delete user</h5>-->
-<!--                                                                            <button type="button"-->
-<!--                                                                                    class="btn-close"-->
-<!--                                                                                    data-bs-dismiss="modal">-->
-<!--                                                                            </button>-->
-<!--                                                                        </div>-->
-<!--                                                                        <div class="modal-body fw-bold">-->
+                                                        <td>
 
-<!--                                                                            <form th:method="POST" th:action="@{/admin/{id}(id=${user.getId()})}" th:object="${user}">-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="${'id_del'+user.getId()}" class="form-label">ID</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="text" class="form-control" name="id" th:id="${'id_del'+user.getId()}" th:field="${user.id}" readonly>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="${'first_name_del'+user.getId()}" class="form-label">First name</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="text" class="form-control"  name="firstName" th:id="${'first_name_del'+user.getId()}" th:field="${user.firstName}" readonly>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="${'last_name_del'+user.getId()}" class="form-label">Last name</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="text" class="form-control" name="lastname" th:id="${'last_name_del'+user.getId()}" th:field="${user.lastName}" readonly>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="${'age_del'+user.getId()}" class="form-label" >Age</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="number" class="form-control" name="age" th:id="${'age_del'+user.getId()}" th:field="${user.age}" readonly>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="${'email_del'+user.getId()}" class="form-label" >Email</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="email" class="form-control" name="mail" th:id="${'email_del'+user.getId()}" th:field="${user.email}" readonly>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="${'password_del'+user.getId()}" class="form-label">Password</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <input type="password" class="form-control" name="password" th:id="${'password_del'+user.getId()}" th:field="${user.password}" readonly>-->
-<!--                                                                                </div>-->
-<!--                                                                                <div class="form-group">-->
-<!--                                                                                    <label th:for="${'role_del'+user.getId()}" class="form-label">Role</label>-->
-<!--                                                                                    <br>-->
-<!--                                                                                    <select th:id="${'role_del'+user.getId()}" class="form-control" name="role" size="2" th:field="${user.roles}" multiple readonly>-->
-<!--                                                                                        <option th:each="role : ${role}"-->
-<!--                                                                                                th:value="${role.getId()}"-->
-<!--                                                                                                th:text="${role.toString()}"></option>-->
-<!--                                                                                    </select>-->
-<!--                                                                                </div>-->
+                                                            <div id="deleteModal" class="modal fade" tabindex="-1">
+                                                                <div class="modal-dialog modal-dialog-centered modal-sm">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header bg-light">
+                                                                            <h5>Delete user</h5>
+                                                                            <button type="button"
+                                                                                    class="btn-close"
+                                                                                    data-bs-dismiss="modal">
+                                                                            </button>
+                                                                        </div>
+                                                                        <div class="modal-body fw-bold">
+                                                                            <form id = "deleteUserForm">
 
-<!--                                                                                <div class="modal-footer">-->
-<!--                                                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-<!--                                                                                    <button type="submit" class="btn btn-danger">Delete</button>-->
-<!--                                                                                </div>-->
-<!--                                                                            </form>-->
-<!--                                                                        </div>-->
-<!--                                                                    </div>-->
-<!--                                                                </div>-->
-<!--                                                            </div>-->
-<!--                                                        </td>-->
-<!--                                                    </tr>-->
-<!--                                                    </tbody>-->
+                                                                                <div class="form-group">
+                                                                                    <label for="deleteID" class="form-label">ID</label>
+                                                                                    <br>
+                                                                                    <input type="text" class="form-control" id= "deleteID"  readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="deleteFirstName" class="form-label">First name</label>
+                                                                                    <br>
+                                                                                    <input type="text" class="form-control"  id="deleteFirstName"  readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="deleteLastName" class="form-label">Last name</label>
+                                                                                    <br>
+                                                                                    <input type="text" class="form-control" id="deleteLastName"  readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for = "deleteAge" class="form-label" >Age</label>
+                                                                                    <br>
+                                                                                    <input type="number" class="form-control" id="deleteAge"  readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="deleteEmail" class="form-label" >Email</label>
+                                                                                    <br>
+                                                                                    <input type="email" class="form-control" id="deleteEmail"  readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="deletePassword" class="form-label">Password</label>
+                                                                                    <br>
+                                                                                    <input type="password" class="form-control" id="deletePassword"  readonly>
+                                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <label for="deleteRole" class="form-label">Role</label>
+                                                                                    <br>
+                                                                                    <select  class="form-control" id="deleteRole" size="2"  multiple readonly>
+
+                                                                                    </select>
+                                                                                </div>
+
+                                                                                <div class="modal-footer">
+                                                                                    <button type="button" id ="modalDeleteClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                                                </div>
+                                                                            </form>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
                                                 </table>
                                                 <br>
                                             </div>
@@ -318,8 +312,17 @@
         await fillTableForUsers();
        await fillTableForUser();
         await addNewUser();
+       await deleteUser();
 
     });
+
+    // getUser
+    async function getUser(id) {
+        let url = `/admin/users/${id}`;
+        let response = await fetch(url);
+        return await response.json();
+    }
+
 
     // fillTableForUsers
     async function fillTableForUsers() {
@@ -341,15 +344,13 @@
                           <td>${user.age}</td>
                           <td>${user.email}</td>
                           <td>${roles}</td>
-                          <td>
-                         <button type="button" data-bs-toggle="modal" class="btn btn-info" id ="buttonEdit" name="data-bs-target=${'#editModal' + user.id}">
-                         Edit
-                         </button>
-                        </td>
-                        <td>
-                         <button type="button" data-bs-toggle="modal" class="btn btn-danger" id ="buttonDelete" name=data-bs-target="${'#deleteModal' + user.id}">
-                         Delete
-                         </button>
+                           <td>
+                                <button type="button" class="btn btn-sm btn-info" data-toggle="modal"  data-action="edit" data-id="${user.id}" data-target="#edit">Edit</button>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" data-user-id="${user.id}">Delete</button>
+
+                             </td>
                         </td>
                           <tr>
                           `
@@ -462,6 +463,47 @@
                     resolve();
                 }
             });
+    }
+      function deleteUser()
+    { const deleteForm = document.forms["deleteUserForm"];
+        deleteForm.addEventListener("submit", async function (event)
+        { event.preventDefault();
+            fetch("admin/users/" + deleteForm.id.value,
+                { method: 'DELETE',
+                    headers:
+                        { 'Content-Type': 'application/json',
+                        }
+                })
+                .then(() =>
+                { $('#modalDeleteClose').click();
+                    return fillTableForUsers();
+                })
+                .catch(error =>
+                { console.error('Error deleting user:', error);
+                });
+        });
+    }
+    $(document).ready(function ()
+    { $('#deleteModal').on("show.bs.modal", function (event)
+    { const button = $(event.relatedTarget);
+        const id = button.data("user-id");
+        return viewDeleteModal(id);
+    })
+    })
+    async function viewDeleteModal(id) {
+        try{
+        let userDelete = await getUser(id);
+        let formDelete = document.forms["deleteUserForm"];
+        formDelete.id.value = userDelete.id;
+        formDelete.firstName.value = userDelete.firstName;
+        formDelete.lastName.value = userDelete.lastName;
+        formDelete.age.value = userDelete.age;
+        formDelete.email.value = userDelete.email;
+        formDelete.password.value = userDelete.password;
+        // formDelete.roles.value = userDelete.roles.map(role => role.id).join(',');
+    }  catch (error) {
+            console.error('Error deleting user:', error);
+        }
     }
 
 </script>

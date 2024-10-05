@@ -43,24 +43,24 @@ public class AdminController {
     }
 
     @PutMapping("/users")
-    public User updateUser (@RequestBody User user) {
-        return userService.updateUser(user);
-    }
+    public ResponseEntity <User> updateUser (@RequestBody User user) {
+        userService.updateUser(user);
+            return new ResponseEntity<>(user, HttpStatus.OK);
+        }
+
 
     @PostMapping("/users")
-    public String saveUser(@RequestBody User user) {
+    public ResponseEntity <User> saveUser(@RequestBody User user) {
+    userService.saveUser(user);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
 
-        userService.saveUser(user);
-        return "redirect:/admin";
     }
-
     @DeleteMapping("/users/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public User deleteUser (@PathVariable("id") long id) {
 
-        return  userService.deleteUserById(id);
+        return userService.deleteUserById(id);
     }
-
-
 
 }
 

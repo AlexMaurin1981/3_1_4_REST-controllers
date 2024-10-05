@@ -22,10 +22,5 @@ public class SpringRESTApplication {
 		SpringApplication.run(SpringRESTApplication.class, args);
 	}
 
-	public List<Role> getRole(String nameRole) {
-		List<Role> roles = new ArrayList<>();
-		roles.add(roleRepository.findByNameRole(nameRole));
-		return roles;
 
-	}
 }
