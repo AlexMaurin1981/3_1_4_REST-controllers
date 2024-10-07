@@ -117,7 +117,7 @@
                                                                                 <div class="form-group">
                                                                                     <label for="editPassword"  class="form-label">Password</label>
                                                                                     <br>
-                                                                                    <input type="password" class="form-control"name="password" id="editPassword">
+                                                                                    <input type="password" class="form-control"name="password" id="editPassword" autocomplete="current-password">
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="editRole" class="form-label">Role</label>
@@ -182,7 +182,7 @@
                                                                                 <div class="form-group">
                                                                                     <label for="deletePassword" class="form-label">Password</label>
                                                                                     <br>
-                                                                                    <input type="password" class="form-control" name="password "id="deletePassword"  readonly>
+                                                                                    <input type="password" class="form-control" name="password" id="deletePassword" autocomplete="current-password">
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deleteRole" class="form-label">Role</label>
@@ -306,7 +306,7 @@
         await fillTableForUsers();
         await fillTableForUser();
         await addNewUser();
-          updateUser();
+       //   updateUser();
           deleteUser();
     });
 
@@ -355,7 +355,7 @@
                                 <button type="button" class="btn btn-sm btn-info" data-toggle="modal"  data-action="edit" data-id="${user.id}" data-target="#edit">Edit</button>
                             </td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"  data-bs-target=#deleteModal" data-user-id="${user.id}">Delete</button>
+                                <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"  data-bs-target="#deleteModal" data-user-id="${user.id}">Delete</button>
                              </td>
                         </td>
                           <tr>
@@ -465,85 +465,85 @@
         }
 
         // updateUser
-     function updateUser () {
-        // Добавляем обработчик для кнопок редактирования
-        document.addEventListener('click', function (event) {
-            if (event.target.classList.contains('btn-info') && event.target.getAttribute('data-action') === 'edit') {
-                const userId = event.target.getAttribute('data-id');
-                openEditModal(userId);
-            }
-        });
-
-
-        // Функция для открытия модального окна редактирования
-       async function openEditModal(userId) {
-            const editModal = document.getElementById('modalEdit');
-            const modal = new bootstrap.Modal(editModal);
-            fillEditModal(userId);
-            modal.show();
-        }
-
-        // Функция для заполнения модального окна данными пользователя
-        async function fillEditModal(userId) {
-            try {
-                const user = await getUser(userId);
-                document.getElementById('editID').value = user.id;
-                document.getElementById('editFirstName').value = user.firstName;
-                document.getElementById('editLastName').value = user.lastName;
-                document.getElementById('editAge').value = user.age;
-                document.getElementById('editEmail').value = user.email;
-                document.getElementById('editPassword').value = user.password;
-
-                // Заполняем роли
-                const editeRole = document.getElementById('editRole');
-
-                user.roles.forEach(role => {
-                    const option = document.createElement('option');
-                    option.value = role.id; // Значение роли
-                    option.textContent = role.nameRole; // Отображаемое имя роли
-                    editeRole.appendChild(option); // Добавляем опцию в селект
-                });
-            } catch (error) {
-                console.error('Ошибка при заполнении формы редактирования:', error);
-            }
-        }
-
-        // Обработчик отправки формы редактирования
-        document.getElementById('formEditUser').addEventListener('submit', async function (event) {
-            event.preventDefault();
-            const editedUser = {
-                id: document.getElementById('editID').value,
-                firstName: document.getElementById('editFirstName').value,
-                lastName: document.getElementById('editLastName').value,
-                age: document.getElementById('editAge').value,
-                email: document.getElementById('editEmail').value,
-                password: document.getElementById('editPassword').value,
-                roles: Array.from(document.getElementById('editRole').selectedOptions).map(option => option.value)
-            };
-
-            try {
-                const response = await fetch('/admin/users', {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify(editedUser)
-                });
-
-                if (response.ok) {
-                    console.log('Пользователь успешно обновлен');
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEdit'));
-                    modal.hide();
-                    await fillTableForUsers(); // Обновляем таблицу пользователей
-                } else {
-                    throw new Error('Ошибка при обновлении пользователя');
-                }
-            } catch (error) {
-                console.error('Ошибка при обновлении пользователя:', error);
-            }
-        });
-    }
-
+    //  function updateUser () {
+    //     // Добавляем обработчик для кнопок редактирования
+    //     document.addEventListener('click', function (event) {
+    //         if (event.target.classList.contains('btn-info') && event.target.getAttribute('data-action') === 'edit') {
+    //             const userId = event.target.getAttribute('data-id');
+    //             openEditModal(userId);
+    //         }
+    //     });
+    //
+    //
+    //     // Функция для открытия модального окна редактирования
+    //    async function openEditModal(userId) {
+    //         const editModal = document.getElementById('modalEdit');
+    //         const modal = new bootstrap.Modal(editModal);
+    //         fillEditModal(userId);
+    //         modal.show();
+    //     }
+    //
+    //     // Функция для заполнения модального окна данными пользователя
+    //     async function fillEditModal(userId) {
+    //         try {
+    //             const user = await getUser(userId);
+    //             document.getElementById('editID').value = user.id;
+    //             document.getElementById('editFirstName').value = user.firstName;
+    //             document.getElementById('editLastName').value = user.lastName;
+    //             document.getElementById('editAge').value = user.age;
+    //             document.getElementById('editEmail').value = user.email;
+    //             document.getElementById('editPassword').value = user.password;
+    //
+    //             // Заполняем роли
+    //             const editeRole = document.getElementById('editRole');
+    //
+    //             user.roles.forEach(role => {
+    //                 const option = document.createElement('option');
+    //                 option.value = role.id; // Значение роли
+    //                 option.textContent = role.nameRole; // Отображаемое имя роли
+    //                 editeRole.appendChild(option); // Добавляем опцию в селект
+    //             });
+    //         } catch (error) {
+    //             console.error('Ошибка при заполнении формы редактирования:', error);
+    //         }
+    //     }
+    //
+    //     // Обработчик отправки формы редактирования
+    //     document.getElementById('formEditUser').addEventListener('submit', async function (event) {
+    //         event.preventDefault();
+    //         const editedUser = {
+    //             id: document.getElementById('editID').value,
+    //             firstName: document.getElementById('editFirstName').value,
+    //             lastName: document.getElementById('editLastName').value,
+    //             age: document.getElementById('editAge').value,
+    //             email: document.getElementById('editEmail').value,
+    //             password: document.getElementById('editPassword').value,
+    //             roles: Array.from(document.getElementById('editRole').selectedOptions).map(option => option.value)
+    //         };
+    //
+    //         try {
+    //             const response = await fetch('/admin/users', {
+    //                 method: 'PUT',
+    //                 headers: {
+    //                     'Content-Type': 'application/json',
+    //                 },
+    //                 body: JSON.stringify(editedUser)
+    //             });
+    //
+    //             if (response.ok) {
+    //                 console.log('Пользователь успешно обновлен');
+    //                 const modal = bootstrap.Modal.getInstance(document.getElementById('modalEdit'));
+    //                 modal.hide();
+    //                 await fillTableForUsers(); // Обновляем таблицу пользователей
+    //             } else {
+    //                 throw new Error('Ошибка при обновлении пользователя');
+    //             }
+    //         } catch (error) {
+    //             console.error('Ошибка при обновлении пользователя:', error);
+    //         }
+    //     });
+    // }
+    //
 
 
     // Функция для открытия модального окна удаления
@@ -559,9 +559,9 @@
             }
         });
 
-        async function openDeleteModal(userId) {
+        async function openDeleteModal(id) {
             try {
-                const user = await getUser(userId); // Предполагается, что getUser возвращает данные пользователя
+                const user = await getUser(id); // Предполагается, что getUser возвращает данные пользователя
                 document.getElementById('deleteID').value = user.id;
                 document.getElementById('deleteFirstName').value = user.firstName;
                 document.getElementById('deleteLastName').value = user.lastName;
