@@ -141,7 +141,7 @@
                                                         <!--- DELETE USER BUTTON --->
                                                         <td>
 
-                                                            <div id="deleteModal" class="modal fade" tabindex="-1">
+                                                            <div id="deleteModal" class="modal fade" tabindex="-1"  aria-labelledby="deleteModalLabel"  aria-hidden="true">
                                                                 <div class="modal-dialog modal-dialog-centered modal-sm">
                                                                     <div class="modal-content">
                                                                         <div class="modal-header bg-light">
@@ -153,7 +153,7 @@
                                                                         </div>
                                                                         <div class="modal-body fw-bold">
                                                                             <form id = "modalBodyDelete">
-
+                                                                                <input type="hidden" id="deleteUserID" value="">
                                                                                 <div class="form-group">
                                                                                     <label for="deleteID" class="form-label">ID</label>
                                                                                     <br>
@@ -561,16 +561,17 @@
 
         async function openDeleteModal(id) {
             try {
-                const user = await getUser(id); // Предполагается, что getUser возвращает данные пользователя
-                document.getElementById('deleteID').value = user.id;
-                document.getElementById('deleteFirstName').value = user.firstName;
-                document.getElementById('deleteLastName').value = user.lastName;
-                document.getElementById('deleteAge').value = user.age;
-                document.getElementById('deleteEmail').value = user.email;
-                document.getElementById('deletePassword').value = user.password;
+                const user = await getUser(id);
+                document.getElementById(`deleteUserID`).value = id;  //  Заполняем  hidden  поле userId
+                document.getElementById(`deleteID`).value = user.id;
+                document.getElementById(`deleteFirstName`).value = user.firstName;
+                document.getElementById(`deleteLastName`).value = user.lastName;
+                document.getElementById(`deleteAge`).value = user.age;
+                document.getElementById(`deleteEmail`).value = user.email;
+                document.getElementById(`deletePassword`).value = user.password;
 
                 // Заполняем роли
-                const deleteRole = document.getElementById('deleteRole');
+                const deleteRole = document.getElementById(`deleteRole`);
                 deleteRole.innerHTML = ''; // Очищаем предыдущие значения
                 user.roles.forEach(role => {
                     const option = document.createElement('option');
@@ -578,21 +579,11 @@
                     option.textContent = role.nameRole; // Отображаемое имя роли
                     deleteRole.appendChild(option); // Добавляем опцию в селект
                 });
-
-                const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-                deleteModal.show(); // Открываем модальное окно
             } catch (error) {
                 console.error('Ошибка при получении данных пользователя:', error);
             }
         }
     }
-
-    // Добавляем обработчик для кнопок удаления
-
-
-
-
-
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
