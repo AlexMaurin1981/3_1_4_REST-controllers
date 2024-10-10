@@ -305,10 +305,9 @@
     document.addEventListener('DOMContentLoaded', async function () {
         await fillTableForUsers();
         await fillTableForUser();
-        await addNewUser();
-       //   updateUser();
-            deleteUser();
-    });
+        addNewUser();
+        //   updateUser();
+        deleteUser();
 
     // getUser
    async  function getUser(id) {
@@ -335,7 +334,7 @@
         async function fillTableForUsers() {
             const allUsers = document.getElementById("tableUsers");
 
-            fetch("admin/users")
+          await  fetch("/admin/users")
                 .then(response => response.json())
                 .then(data => {
                     if (Array.isArray(data)) {
@@ -371,12 +370,12 @@
         }
 
         // fillTableForUser
-        async function fillTableForUser() {
+       async function fillTableForUser() {
             const userAdminInfo = document.getElementById("newNavbar");
             let newNavbar = ""
             const userTable = document.getElementById("tableUser");
             let u = ""
-            fetch("admin/users/user")
+           await fetch("/admin/users/user")
                 .then(response => response.json())
                 .then(user => {
                     const roles = user.roles.map(role => role.nameRole.replace("ROLE_", "")).join(", ");
@@ -429,9 +428,9 @@
         // });
 
 // new User
-       async function addNewUser() {
+        function addNewUser() {
 
-            document.getElementById("newUserForm").addEventListener("submit", async function (event) {
+            document.getElementById("newUserForm").addEventListener("submit",  function (event) {
                 event.preventDefault();
                 const newUser = {
                     firstName: document.getElementById("newUserName").value,
@@ -443,7 +442,7 @@
                 };
 
                 try {
-                    const response = await fetch("admin/users/", {
+                    const response =  fetch("/admin/users", {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
