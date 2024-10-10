@@ -307,17 +307,17 @@
         await fillTableForUser();
         await addNewUser();
        //   updateUser();
-          deleteUser();
+            deleteUser();
     });
 
     // getUser
-    async function getUser(id) {
+   async  function getUser(id) {
         if (!id) {
             console.error('ID пользователя не определен');
             return null;
         }
         try {
-            const response = await fetch(`admin/${id}`);
+            const response = await fetch("admin/user/${id}");
             if (!response.ok) {
                 throw new Error(`Ошибка HTTP: ${response.status}`);
             }
@@ -401,32 +401,32 @@
 
         // switchPanel admin/user
 
-        const adminTab = document.getElementById('v-pills-admin-tab');
-        const userTab = document.getElementById('v-pills-user-tab');
-        const adminContent = document.getElementById('v-pills-admin');
-        const userContent = document.getElementById('v-pills-user');
+        // const adminTab = document.getElementById('v-pills-admin-tab');
+        // const userTab = document.getElementById('v-pills-user-tab');
+        // const adminContent = document.getElementById('v-pills-admin');
+        // const userContent = document.getElementById('v-pills-user');
+        //
+        // // Функция для переключения панелей
+        // async function switchPanel(activeTab, inactiveTab, activeContent, inactiveContent) {
+        //     // Скрываем неактивный контент и убираем активный класс с неактивной вкладки
+        //     inactiveContent.classList.remove('show', 'active');
+        //     inactiveTab.classList.remove('active');
+        //
+        //     // Показываем активный контент и добавляем активный класс к активной вкладке
+        //     activeContent.classList.add('show', 'active');
+        //     activeTab.classList.add('active');
+        // }
+        //
+        // // Добавляем обработчики событий для вкладок
+        // adminTab.addEventListener('click', (event) => {
+        //     event.preventDefault(); // Предотвращаем переход по ссылке
+        //     switchPanel(adminTab, userTab, adminContent, userContent);
+        // });
 
-        // Функция для переключения панелей
-        async function switchPanel(activeTab, inactiveTab, activeContent, inactiveContent) {
-            // Скрываем неактивный контент и убираем активный класс с неактивной вкладки
-            inactiveContent.classList.remove('show', 'active');
-            inactiveTab.classList.remove('active');
-
-            // Показываем активный контент и добавляем активный класс к активной вкладке
-            activeContent.classList.add('show', 'active');
-            activeTab.classList.add('active');
-        }
-
-        // Добавляем обработчики событий для вкладок
-        adminTab.addEventListener('click', (event) => {
-            event.preventDefault(); // Предотвращаем переход по ссылке
-            switchPanel(adminTab, userTab, adminContent, userContent);
-        });
-
-        userTab.addEventListener('click', (event) => {
-            event.preventDefault(); // Предотвращаем переход по ссылке
-            switchPanel(userTab, adminTab, userContent, adminContent);
-        });
+        // userTab.addEventListener('click', (event) => {
+        //     event.preventDefault(); // Предотвращаем переход по ссылке
+        //     switchPanel(userTab, adminTab, userContent, adminContent);
+        // });
 
 // new User
        async function addNewUser() {
@@ -443,7 +443,7 @@
                 };
 
                 try {
-                    const response = await fetch("admin/users", {
+                    const response = await fetch("admin/users/", {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
@@ -546,22 +546,51 @@
     //
 
 
+//deleteUser
     // Функция для открытия модального окна удаления
     function deleteUser () {
-        document.addEventListener('click', function (event) {
+        document.addEventListener('submit', function (event) {
             if (event.target.classList.contains('btn-danger')) {
                 const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
                 if (userId) {
-                    openDeleteModal(userId); // Открываем модальное окно с данным ID
+                    // Используем fetch для отправки DELETE-запроса
+                    fetch("/admin/users/${userId}", {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    })
+                        .then(() => {
+                            document.getElementById('modalDeleteClose').click();
+                            return fillTableForUsers();
+                        })
+                        .catch(error => {
+                            console.error("Ошибка при удалении запроса:", error);
+                        });
                 } else {
                     console.error('ID пользователя не найден в кнопке удаления');
                 }
             }
         });
 
-        async function openDeleteModal(id) {
+        document.addEventListener('DOMContentLoaded', function () {
+            const deleteModal = document.getElementById('deleteModal');
+            deleteModal.addEventListener('show.bs.modal', function (event) {
+                // Получение данных из кнопки, которая открыла модальное окно
+                const button = event.relatedTarget;
+                // Получение ID пользователя из атрибута кнопки
+                const id = button.getAttribute('data-user-id');
+                console.log("ID пользователя:data-user-id", id);
+                // Вызов функции для заполнения модального окна данными пользователя
+                viewDeleteModal(id);
+            });
+        });
+
+
+        async function viewDeleteModal(id) {
             try {
-                const user = await getUser(id); // Предполагается, что getUser возвращает данные пользователя
+                const user = await getUser(id);
+                console.log(user)// Предполагается, что getUser возвращает данные пользователя
                 document.getElementById('deleteID').value = user.id;
                 document.getElementById('deleteFirstName').value = user.firstName;
                 document.getElementById('deleteLastName').value = user.lastName;
@@ -578,14 +607,14 @@
                     option.textContent = role.nameRole; // Отображаемое имя роли
                     deleteRole.appendChild(option); // Добавляем опцию в селект
                 });
-
-                const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-                deleteModal.show(); // Открываем модальное окно
             } catch (error) {
-                console.error('Ошибка при получении данных пользователя:', error);
+                console.error('Ошибка при заполнении модального окна удаления:', error);
             }
         }
+
+
     }
+
 
     // Добавляем обработчик для кнопок удаления
 
