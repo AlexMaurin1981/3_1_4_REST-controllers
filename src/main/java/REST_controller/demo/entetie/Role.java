@@ -1,6 +1,7 @@
 package REST_controller.demo.entetie;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonValue;
 import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;

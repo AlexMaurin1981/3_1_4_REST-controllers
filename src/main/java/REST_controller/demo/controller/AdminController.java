@@ -32,34 +32,33 @@ public class AdminController {
         List <User>user=userService.getAllUsers();
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-    @GetMapping("user/{id}")
+    @GetMapping("/user/{id}")
     public ResponseEntity<User> showUser(@PathVariable("id") long id) {
        User user =userService.getUserById(id);
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
-    @GetMapping("users/user")
+    @GetMapping("/users/user")
     public ResponseEntity<User> getUser(@AuthenticationPrincipal User user){
         return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @PutMapping("/users")
-    public ResponseEntity <User> updateUser (@RequestBody User user) {
+    public ResponseEntity <HttpStatus> updateUser (@RequestBody User user) {
         userService.updateUser(user);
-            return new ResponseEntity<>(user, HttpStatus.OK);
+            return new  ResponseEntity<>( HttpStatus.OK);
         }
 
 
     @PostMapping("/users")
-    public ResponseEntity <User> saveUser(@RequestBody User user) {
+    public ResponseEntity <HttpStatus> saveUser(@RequestBody User user) {
     userService.saveUser(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>( HttpStatus.CREATED);
 
     }
     @DeleteMapping("/users/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public User deleteUser (@PathVariable("id") long id) {
-
-        return userService.deleteUserById(id);
+    public ResponseEntity<HttpStatus> deleteUser (@PathVariable("id") long id) {
+      userService.deleteUserById(id);
+      return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
 }
