@@ -117,7 +117,7 @@
                                                                                 <div class="form-group">
                                                                                     <label for="editPassword"  class="form-label">Password</label>
                                                                                     <br>
-                                                                                    <input type="password" class="form-control"name="password" id="editPassword" autocomplete="current-password">
+                                                                                    <input type="password" class="form-control" name="password" id="editPassword" autocomplete="current-password">
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="editRole" class="form-label">Role</label>
@@ -167,17 +167,17 @@
                                                                                 <div class="form-group">
                                                                                     <label for="deleteLastName" class="form-label">Last name</label>
                                                                                     <br>
-                                                                                    <input type="text" class="form-control"name="LastName" id="deleteLastName"  readonly>
+                                                                                    <input type="text" class="form-control" name="LastName" id="deleteLastName"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for = "deleteAge" class="form-label" >Age</label>
                                                                                     <br>
-                                                                                    <input type="number" class="form-control"name="age" id="deleteAge"  readonly>
+                                                                                    <input type="number" class="form-control" name="age" id="deleteAge"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deleteEmail" class="form-label" >Email</label>
                                                                                     <br>
-                                                                                    <input type="email" class="form-control"name="email" id="deleteEmail"  readonly>
+                                                                                    <input type="email" class="form-control" name="email" id="deleteEmail"  readonly>
                                                                                 </div>
                                                                                 <div class="form-group">
                                                                                     <label for="deletePassword" class="form-label">Password</label>
@@ -307,7 +307,7 @@
         await fillTableForUser();
         await addNewUser();
        //   updateUser();
-          deleteUser();
+
     });
 
     // getUser
@@ -317,9 +317,9 @@
             return null;
         }
         try {
-            const response = await fetch(`admin/${id}`);
+            const response = await fetch(`admin/users/${id}`);
             if (!response.ok) {
-                throw new Error(`Ошибка HTTP: ${response.status}`);
+               console.log("статус", response.status);
             }
             return await response.json();
         } catch (error) {
@@ -401,32 +401,6 @@
 
         // switchPanel admin/user
 
-        const adminTab = document.getElementById('v-pills-admin-tab');
-        const userTab = document.getElementById('v-pills-user-tab');
-        const adminContent = document.getElementById('v-pills-admin');
-        const userContent = document.getElementById('v-pills-user');
-
-        // Функция для переключения панелей
-        async function switchPanel(activeTab, inactiveTab, activeContent, inactiveContent) {
-            // Скрываем неактивный контент и убираем активный класс с неактивной вкладки
-            inactiveContent.classList.remove('show', 'active');
-            inactiveTab.classList.remove('active');
-
-            // Показываем активный контент и добавляем активный класс к активной вкладке
-            activeContent.classList.add('show', 'active');
-            activeTab.classList.add('active');
-        }
-
-        // Добавляем обработчики событий для вкладок
-        adminTab.addEventListener('click', (event) => {
-            event.preventDefault(); // Предотвращаем переход по ссылке
-            switchPanel(adminTab, userTab, adminContent, userContent);
-        });
-
-        userTab.addEventListener('click', (event) => {
-            event.preventDefault(); // Предотвращаем переход по ссылке
-            switchPanel(userTab, adminTab, userContent, adminContent);
-        });
 
 // new User
        async function addNewUser() {
@@ -547,7 +521,7 @@
 
 
     // Функция для открытия модального окна удаления
-    function deleteUser () {
+
         document.addEventListener('click', function (event) {
             if (event.target.classList.contains('btn-danger')) {
                 const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
@@ -559,33 +533,37 @@
             }
         });
 
-        async function openDeleteModal(id) {
-            try {
-                const user = await getUser(id); // Предполагается, что getUser возвращает данные пользователя
-                document.getElementById('deleteID').value = user.id;
-                document.getElementById('deleteFirstName').value = user.firstName;
-                document.getElementById('deleteLastName').value = user.lastName;
-                document.getElementById('deleteAge').value = user.age;
-                document.getElementById('deleteEmail').value = user.email;
-                document.getElementById('deletePassword').value = user.password;
+            async function openDeleteModal(id) {
+                try {
+                    const user = await getUser(id);// Предполагается, что getUser возвращает данные пользователя
+                    console.log(user);
+                    document.getElementById('deleteID').value = user.id;
+                    document.getElementById('deleteFirstName').value = user.firstName;
+                    document.getElementById('deleteLastName').value = user.lastName;
+                    document.getElementById('deleteAge').value = user.age;
+                    document.getElementById('deleteEmail').value = user.email;
+                    document.getElementById('deletePassword').value = user.password;
 
-                // Заполняем роли
-                const deleteRole = document.getElementById('deleteRole');
-                deleteRole.innerHTML = ''; // Очищаем предыдущие значения
-                user.roles.forEach(role => {
-                    const option = document.createElement('option');
-                    option.value = role.id; // Значение роли
-                    option.textContent = role.nameRole; // Отображаемое имя роли
-                    deleteRole.appendChild(option); // Добавляем опцию в селект
-                });
+                    // Заполняем роли
+                    const deleteRole = document.getElementById('deleteRole');
+                    deleteRole.innerHTML = ''; // Очищаем предыдущие значения
+                    user.roles.forEach(role => {
+                        const option = document.createElement('option');
+                        option.value = role.id; // Значение роли
+                        option.textContent = role.nameRole; // Отображаемое имя роли
+                        deleteRole.appendChild(option); // Добавляем опцию в селект
+                    });
 
-                const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-                deleteModal.show(); // Открываем модальное окно
-            } catch (error) {
-                console.error('Ошибка при получении данных пользователя:', error);
+                    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+                    deleteModal.show(); // Открываем модальное окно
+                } catch (error) {
+                    console.error('Ошибка при получении данных пользователя:', error);
+                }
             }
-        }
-    }
+
+
+
+
 
     // Добавляем обработчик для кнопок удаления
 
