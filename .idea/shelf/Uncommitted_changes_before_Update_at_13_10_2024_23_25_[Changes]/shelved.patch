@@ -1,0 +1,35 @@
+Index: src/main/java/REST_controller/demo/service/UserService.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package REST_controller.demo.service;\r\n\r\nimport REST_controller.demo.entetie.User;\r\nimport org.springframework.security.core.userdetails.UserDetailsService;\r\n\r\n\r\nimport java.util.List;\r\n\r\npublic interface UserService  extends UserDetailsService {\r\n    User getUserByEmail(String email);\r\n\r\n      void saveUser(User user);\r\n\r\n    User getUserById(Long id);\r\n\r\n    User deleteUserById(Long id);\r\n\r\n    User updateUser(User user);\r\n    List<User> getAllUsers();\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/REST_controller/demo/service/UserService.java b/src/main/java/REST_controller/demo/service/UserService.java
+--- a/src/main/java/REST_controller/demo/service/UserService.java	(revision e4df08019460abbabc1b094c6f180511ce4a238b)
++++ b/src/main/java/REST_controller/demo/service/UserService.java	(date 1728850729347)
+@@ -18,5 +18,6 @@
+     User updateUser(User user);
+     List<User> getAllUsers();
+ 
++
+ }
+ 
+Index: src/main/java/REST_controller/demo/entetie/Role.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package REST_controller.demo.entetie;\r\n\r\nimport com.fasterxml.jackson.annotation.JsonIgnore;\r\nimport org.springframework.security.core.GrantedAuthority;\r\n\r\nimport javax.persistence.*;\r\nimport java.util.Set;\r\n\r\n@Entity\r\n@Table(name = \"roles\")\r\npublic class Role implements GrantedAuthority {\r\n @Id\r\n private Long id;\r\n @Column(name = \"name_role\")\r\n private String nameRole;\r\n @Column(name = \"users\")\r\n @ManyToMany(mappedBy = \"roles\")\r\n @JsonIgnore\r\n private Set<User> users;\r\n\r\n public Role() {\r\n }\r\n\r\n public Role(Long id) {\r\n  this.id = id;\r\n }\r\n\r\n public Role(Long id, String nameRole) {\r\n  this.id = id;\r\n  this.nameRole = nameRole;\r\n }\r\n\r\n public Long getId() {\r\n  return id;\r\n }\r\n\r\n public void setId(Long id) {\r\n  this.id = id;\r\n }\r\n\r\n public String getNameRole() {\r\n  return nameRole;\r\n }\r\n\r\n public void setNameRole(String nameRole) {\r\n  this.nameRole = nameRole;\r\n }\r\n\r\n public Set<User> getUsers() {\r\n  return users;\r\n }\r\n\r\n public void setUsers(Set<User> users) {\r\n  this.users = users;\r\n }\r\n\r\n @Override\r\n public String getAuthority() {\r\n  return getNameRole();\r\n }\r\n\r\n @Override\r\n public String toString() {\r\n  return nameRole.substring(5) + \" \";\r\n }\r\n\r\n}\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/REST_controller/demo/entetie/Role.java b/src/main/java/REST_controller/demo/entetie/Role.java
+--- a/src/main/java/REST_controller/demo/entetie/Role.java	(revision e4df08019460abbabc1b094c6f180511ce4a238b)
++++ b/src/main/java/REST_controller/demo/entetie/Role.java	(date 1728850729346)
+@@ -1,6 +1,7 @@
+ package REST_controller.demo.entetie;
+ 
+ import com.fasterxml.jackson.annotation.JsonIgnore;
++import com.fasterxml.jackson.annotation.JsonValue;
+ import org.springframework.security.core.GrantedAuthority;
+ 
+ import javax.persistence.*;
