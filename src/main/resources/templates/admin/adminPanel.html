@@ -192,7 +192,7 @@
                                                                                     </select>
                                                                                 </div>
 
-                                                                                <div class="modal-footer">
+                                                                                <div class="modal-footer delete_form_buttons" >
                                                                                     <button type="button" id ="modalDeleteClose" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                                                 </div>
@@ -301,12 +301,14 @@
 </div>
 
 <script>
+
+    const deleteBtn = document.querySelector(".delete_form_buttons");
     console.log('Скрипт загружен и выполняется');
     document.addEventListener('DOMContentLoaded', async function () {
         await fillTableForUsers();
         await fillTableForUser();
-        await addNewUser();
-       //   updateUser();
+
+
 
     });
 
@@ -519,24 +521,26 @@
     // }
     //
 
+    // deleteUser
 
-    // Функция для открытия модального окна удаления
-
+    // Обработчик кликов по документу
         document.addEventListener('click', function (event) {
+            // Проверяем, нажата ли кнопка удаления
             if (event.target.classList.contains('btn-danger')) {
                 const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
                 if (userId) {
-                    openDeleteModal(userId); // Открываем модальное окно с данным ID
+                    openDeleteModal(userId);// Открываем модальное окно с данным ID
                 } else {
                     console.error('ID пользователя не найден в кнопке удаления');
                 }
             }
         });
-
+            // Асинхронная функция для открытия модального окна удаления
             async function openDeleteModal(id) {
                 try {
-                    const user = await getUser(id);// Предполагается, что getUser возвращает данные пользователя
+                    const user = await getUser(id);// Получаем данные пользователя по IDя
                     console.log(user);
+                    // Заполняем поля модального окна данными пользователя
                     document.getElementById('deleteID').value = user.id;
                     document.getElementById('deleteFirstName').value = user.firstName;
                     document.getElementById('deleteLastName').value = user.lastName;
@@ -553,13 +557,61 @@
                         option.textContent = role.nameRole; // Отображаемое имя роли
                         deleteRole.appendChild(option); // Добавляем опцию в селект
                     });
-
+                    // Создаем экземпляр модального окна и показываем его
                     const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-                    deleteModal.show(); // Открываем модальное окно
+                    deleteModal.show();
                 } catch (error) {
                     console.error('Ошибка при получении данных пользователя:', error);
                 }
             }
+
+    // Обработчик клика по кнопке подтверждения удаления
+            deleteBtn.addEventListener('click',  (event) => {
+                if (event.target.classList.contains('btn-danger')) {
+
+                    const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
+                    console.log("id кнопки для закрытия модального окна ", userId);
+                    if (userId) {
+                        // Удаляем пользователя
+                        deleteUser(userId);
+                        // Получаем экземпляр модального окна
+                        const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
+
+                        console.log("id кнопки для закрытия модального окна ", userId);
+                        // Закрываем модальное окно
+                        deleteModal.hide();
+
+                    }
+                }
+            });
+                // Функция для удаления пользователя по ID
+                function deleteUser(id) {
+                    fetch(`/admin/users/${id}`, {//отправляем запрос на удаление пользователя на сервер
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                    })
+                        .then(response => {
+                            if (response.ok) {
+                                console.log('Пользователь успешно удален');
+                                // Обновляем таблицу пользователей
+                                 fillTableForUsers();
+                                // Закрываем модальное окно после успешного удаления
+                                const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
+                                deleteModal.hide();
+                            } else {
+                                console.error('Ошибка при удалении пользователя');
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Ошибка при удалении пользователя:', error);
+                        });
+                }
+
+
+    // Обработчик отправки формы удаления
+
 
 
 
