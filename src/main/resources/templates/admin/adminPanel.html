@@ -127,7 +127,7 @@
                                                                                     </select>
                                                                                     <br>
                                                                                 </div>
-                                                                                <div class="modal-footer">
+                                                                                <div class="modal-footer edit_form_buttons">
                                                                                     <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                                                                     <button type="submit" class="btn btn-primary">Edit</button>
                                                                                 </div>
@@ -214,7 +214,7 @@
                            <!--  Add user -->
                             <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                                 <div class=" text-dark mb-3">
-                                    <div class="card">
+                                    <div class="card add_card">
                                         <div class="card-header bg-light">
                                             <h3>Add new user</h3>
                                         </div>
@@ -254,7 +254,7 @@
                                                             <option value="2">ROLE_ADMIN</option>
                                                         </select>
                                                     </div>
-                                                    <button class="btn btn-success btr-lg mt-3" type="submit">Add new user</button>
+                                                    <button class="btn btn-success btn-save btr-lg mt-3" type="submit ">Add new user</button>
                                                 </form>
                                             </div>
                                         </div>
@@ -303,6 +303,13 @@
 <script>
 
     const deleteBtn = document.querySelector(".delete_form_buttons");
+    const editBtn = document.querySelector(".edit_form_buttons");
+    const addBtn = document.querySelector(".add_card");
+    const formElement =document.getElementById('newUserForm');
+
+
+    let deleteId;
+    let newUser;
     console.log('Скрипт загружен и выполняется');
     document.addEventListener('DOMContentLoaded', async function () {
         await fillTableForUsers();
@@ -405,40 +412,54 @@
 
 
 // new User
-       async function addNewUser() {
 
-            document.getElementById("newUserForm").addEventListener("submit", async function (event) {
+            formElement.addEventListener("click", function (event) {
                 event.preventDefault();
-                const newUser = {
-                    firstName: document.getElementById("newUserName").value,
-                    lastName: document.getElementById("newUserSurname").value,
-                    age: document.getElementById("newUserAge").value,
-                    email: document.getElementById("newUserEmail").value,
-                    password: document.getElementById("newUserPassword").value,
-                    roles: Array.from(document.getElementById("newUserRole").selectedOptions).map(option => option.value)
-                };
 
-                try {
-                    const response = await fetch("admin/users", {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(newUser)
-                    });
+                      newUser = {
+                         firstName: document.getElementById("newUserName").value,
+                         lastName: document.getElementById("newUserSurname").value,
+                         age: document.getElementById("newUserAge").value,
+                         email: document.getElementById("newUserEmail").value,
+                         password: document.getElementById("newUserPassword").value,
+                         roles: Array.from(document.getElementById("newUserRole").selectedOptions).map(option => option.value)
+                     };
 
-                    if (response.ok) {
-                        console.log('User added successfully');
 
-                        document.getElementById("newUserForm").reset(); // Очищаем форму после добавления пользователя
-                        document.querySelector('a#nav-home-tab').click(); // Переходим на главную страницу после добавления пользователя
-                        await fillTableForUsers();
-                    }
-                } catch (error) {
-                    console.error('Error adding user:', error);
-                }
             });
-        }
+
+              function addUser(newUser) {
+                  try {
+                      const response = fetch("admin/users", {
+                          method: 'POST',
+                          headers: {
+                              'Content-Type': 'application/json',
+                          },
+                          body: JSON.stringify(newUser)
+                      });
+
+                      if (response.ok) {
+                          console.log('User added successfully');
+
+                           // formElement.reset(); // Очищаем форму после добавления пользователя
+                           // document.querySelector('a#nav-home-tab').click(); // Переходим на главную страницу после добавления пользователя
+                           fillTableForUsers();
+                      }
+                  } catch (error) {
+                      console.error('Error adding user:', error);
+                  }
+
+              }
+
+addBtn.addEventListener('click', event => {
+    if(event.target.classList.contains('btn-save')){
+    addUser(newUser);//
+   formElement.reset();// очищаем форму после добавления пользователя
+        document.querySelector('a#nav-home-tab').click(); // Переходим на главную страницу после добавления пользователя
+
+    }
+
+});
 
         // updateUser
     //  function updateUser () {
@@ -524,16 +545,10 @@
     // deleteUser
 
     // Обработчик кликов по документу
-        document.addEventListener('click', function (event) {
-            // Проверяем, нажата ли кнопка удаления
-            if (event.target.classList.contains('btn-danger')) {
+        document.addEventListener('click',  (event)=> {
+
                 const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
-                if (userId) {
                     openDeleteModal(userId);// Открываем модальное окно с данным ID
-                } else {
-                    console.error('ID пользователя не найден в кнопке удаления');
-                }
-            }
         });
             // Асинхронная функция для открытия модального окна удаления
             async function openDeleteModal(id) {
@@ -542,6 +557,7 @@
                     console.log(user);
                     // Заполняем поля модального окна данными пользователя
                     document.getElementById('deleteID').value = user.id;
+                    deleteId = user.id;
                     document.getElementById('deleteFirstName').value = user.firstName;
                     document.getElementById('deleteLastName').value = user.lastName;
                     document.getElementById('deleteAge').value = user.age;
@@ -557,9 +573,6 @@
                         option.textContent = role.nameRole; // Отображаемое имя роли
                         deleteRole.appendChild(option); // Добавляем опцию в селект
                     });
-                    // Создаем экземпляр модального окна и показываем его
-                    const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
-                    deleteModal.show();
                 } catch (error) {
                     console.error('Ошибка при получении данных пользователя:', error);
                 }
@@ -568,24 +581,19 @@
     // Обработчик клика по кнопке подтверждения удаления
             deleteBtn.addEventListener('click',  (event) => {
                 if (event.target.classList.contains('btn-danger')) {
-
-                    const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
-                    console.log("id кнопки для закрытия модального окна ", userId);
-                    if (userId) {
                         // Удаляем пользователя
-                        deleteUser(userId);
+                        deleteUser(deleteId);
+                    // Закрываем модальное окно
+                 //   const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
                         // Получаем экземпляр модального окна
-                        const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
-
-                        console.log("id кнопки для закрытия модального окна ", userId);
+                      //  const deleteModal = bootstrap.Modal.getInstance(document.getElementById('deleteModal'));
+                      //  console.log("id кнопки для закрытия модального окна ", userId);
                         // Закрываем модальное окно
                         deleteModal.hide();
-
                     }
-                }
             });
                 // Функция для удаления пользователя по ID
-                function deleteUser(id) {
+              async  function deleteUser(id) {
                     fetch(`/admin/users/${id}`, {//отправляем запрос на удаление пользователя на сервер
                         method: 'DELETE',
                         headers: {
