@@ -442,7 +442,7 @@
                           console.log('User added successfully');
 
                             formElement.reset(); // Очищаем форму после добавления пользователя
-                           // document.querySelector('a#nav-home-tab').click(); // Переходим на главную страницу после добавления пользователя
+                            document.querySelector('a#nav-home-tab').click(); // Переходим на главную страницу после добавления пользователя
                            fillTableForUsers();
 
                       }
@@ -530,8 +530,8 @@ addBtn.addEventListener('click', event => {
 
                 if (response.ok) {
                     console.log('Пользователь успешно обновлен');
-                    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEdit'));
-                    modal.hide();
+                //    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEdit'));
+                  //  modal.hide();
                     await fillTableForUsers(); // Обновляем таблицу пользователей
                 } else {
                    console.log('Ошибка при обновлении пользователя');
@@ -546,76 +546,77 @@ addBtn.addEventListener('click', event => {
     // deleteUser
 
   //  Обработчик кликов по документу
-        document.addEventListener('click',  (event)=> {
+      document.addEventListener('click',  (event)=> {
+          const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
+          openDeleteModal(userId);// Открываем модальное окно с данным ID
 
-               const userId = event.target.getAttribute('data-user-id'); // Получаем ID пользователя
-                    openDeleteModal(userId);// Открываем модальное окно с данным ID
-        });
+          // Асинхронная функция для открытия модального окна удаления
+          async function openDeleteModal(id) {
+              try {
+                  const user = await getUser(id);// Получаем данные пользователя по IDя
+                  console.log(user);
+                  // Заполняем поля модального окна данными пользователя
+                  document.getElementById('deleteID').value = user.id;
+                  deleteId = user.id;
+                  document.getElementById('deleteFirstName').value = user.firstName;
+                  document.getElementById('deleteLastName').value = user.lastName;
+                  document.getElementById('deleteAge').value = user.age;
+                  document.getElementById('deleteEmail').value = user.email;
+                  document.getElementById('deletePassword').value = user.password;
 
-            // Асинхронная функция для открытия модального окна удаления
-            async function openDeleteModal(id) {
-                try {
-                    const user = await getUser(id);// Получаем данные пользователя по IDя
-                    console.log(user);
-                    // Заполняем поля модального окна данными пользователя
-                    document.getElementById('deleteID').value = user.id;
-                    deleteId = user.id;
-                    document.getElementById('deleteFirstName').value = user.firstName;
-                    document.getElementById('deleteLastName').value = user.lastName;
-                    document.getElementById('deleteAge').value = user.age;
-                    document.getElementById('deleteEmail').value = user.email;
-                    document.getElementById('deletePassword').value = user.password;
+                  // Заполняем роли
+                  const deleteRole = document.getElementById('deleteRole');
+                  deleteRole.innerHTML = ''; // Очищаем предыдущие значения
+                  user.roles.forEach(role => {
+                      const option = document.createElement('option');
+                      option.value = role.id; // Значение роли
+                      option.textContent = role.nameRole; // Отображаемое имя роли
+                      deleteRole.appendChild(option); // Добавляем опцию в селект
+                  });
+              } catch (error) {
+                  console.error('Ошибка при получении данных пользователя:', error);
+              }
+          }
 
-                    // Заполняем роли
-                    const deleteRole = document.getElementById('deleteRole');
-                    deleteRole.innerHTML = ''; // Очищаем предыдущие значения
-                    user.roles.forEach(role => {
-                        const option = document.createElement('option');
-                        option.value = role.id; // Значение роли
-                        option.textContent = role.nameRole; // Отображаемое имя роли
-                        deleteRole.appendChild(option); // Добавляем опцию в селект
-                    });
-                } catch (error) {
-                    console.error('Ошибка при получении данных пользователя:', error);
-                }
-            }
+          // Функция для удаления пользователя по ID
 
-                // Функция для удаления пользователя по ID
-    function deleteUser(id) {
-        const deleteForm = document.forms['deleteForm'];
-        deleteForm.addEventListener("submit", function (event) {
-            event.preventDefault();
-            fetch(`/admin/users/${id}`, {//отправляем запрос на удаление пользователя на сервер
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-            })
-                .then(response => {
-                    if (response.ok) {
-                        console.log('Пользователь успешно удален');
+          function deleteUser(id) {
+              const deleteForm = document.forms['deleteForm'];
+              deleteForm.addEventListener("submit", function (event) {
+                  event.preventDefault();
+                  fetch(`/admin/users/${id}`, {//отправляем запрос на удаление пользователя на сервер
+                      method: 'DELETE',
+                      headers: {
+                          'Content-Type': 'application/json',
+                      },
+                  })
+                      .then(response => {
+                          if (response.ok) {
+                              console.log('Пользователь успешно удален');
 
-                        return fillTableForUsers();
-                    } else {
-                        console.error('Ошибка при удалении пользователя');
-                    }
-                })
-                .catch(error => {
-                    console.error('Ошибка при удалении пользователя:', error);
-                });
-        })
-    }
+                               fillTableForUsers();
 
-    // // Обработчик клика по кнопке подтверждения удаления
-    deleteBtn.addEventListener('click',  (event) => {
-        if (event.target.classList.contains('btn-danger')) {
-          //  Удаляем пользователя
-            deleteUser(deleteId);
-            document.getElementById('modalDeleteClose').click();
-         //   Получаем экземпляр модального окна
-             console.log("id кнопки для закрытия модального окна ", deleteId);
-        }
-    });
+                          } else {
+                              console.error('Ошибка при удалении пользователя');
+                          }
+                      })
+                      .catch(error => {
+                          console.error('Ошибка при удалении пользователя:', error);
+                      });
+              })
+          }
+
+          // Обработчик клика по кнопке подтверждения удаления
+          deleteBtn.addEventListener('click', (event) => {
+              if (event.target.classList.contains('btn-danger')) {
+                  //  Удаляем пользователя
+                  deleteUser(deleteId);
+                  document.getElementById('modalDeleteClose').click();
+                  //   Получаем экземпляр модального окна
+
+              }
+          });
+      });
 
 
 
