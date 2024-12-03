@@ -12,11 +12,11 @@ import java.util.List;
 @SpringBootApplication
 public class SpringRESTApplication {
 
-	private final RoleRepository roleRepository;
-
-	public SpringRESTApplication(RoleRepository roleRepository) {
-		this.roleRepository = roleRepository;
-	}
+//	private final RoleRepository roleRepository;
+//
+//	public SpringRESTApplication(RoleRepository roleRepository) {
+//		this.roleRepository = roleRepository;
+//	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringRESTApplication.class, args);

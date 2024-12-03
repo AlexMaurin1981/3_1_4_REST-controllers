@@ -259,7 +259,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Maven.spring-boot_REST-demo [clean].executor": "Run",
     "Maven.spring-boot_REST-demo [org.apache.maven.plugins:maven-resources-plugin:3.2.0:copy-resources].executor": "Run",
+    "Maven.spring-boot_REST-demo [package].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -405,6 +407,7 @@
       <workItem from="1733242092559" duration="1150000" />
       <workItem from="1733246402579" duration="3000" />
       <workItem from="1733246428390" duration="417000" />
+      <workItem from="1733247060261" duration="1051000" />
     </task>
     <task id="LOCAL-00002" summary="REST API">
       <option name="closed" value="true" />
@@ -537,7 +540,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
