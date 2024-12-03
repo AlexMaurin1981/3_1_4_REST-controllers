@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="000ec36a-a0e3-4da4-ad9c-21e61aaada3d" name="Changes" comment="commit delete">
+      <change afterPath="$PROJECT_DIR$/../.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/SpringBootSecurityDemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/config/BCryptpasswordImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/config/MvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/config/SuccessUserHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/controller/UsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/entetie/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/reposotorie/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/reposotorie/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/service/RoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/service/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/java/ru/kata/spring/boot_security/demo/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/resources/templates/admin/adminPanel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/resources/templates/admin/deleteuser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/main/resources/templates/user/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../3_1_4_Bootstrap--main/src/test/java/ru/kata/spring/boot_security/demo/SpringBootSecurityDemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../HelloWorld" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/SpringBootSecurityDemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/configs/MvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/configs/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/controller/UsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/dao/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/service/RoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/java/ru/kata/spring/boot_security/demo/service/UserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/resources/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/main/resources/templates/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/Bootstrap_3.1.4-main/src/test/java/ru/kata/spring/boot_security/demo/SpringBootSecurityDemoApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/dao/UserDaoHibernateImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../JDBC_Hibernate-master/src/main/java/jm/task/core/jdbc/util/Util.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MAURIN" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_2_1_2_Spring_HelloWorld" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_2_1_4_spring-types-of-wiring" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3.1.4_BOOTSTRAP-main/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/SpringBootSecurityDemoApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/configs/MvcConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/configs/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/configs/controllers/AdminController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/configs/controllers/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/reposotories/RoleRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/reposotories/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/java/ru/kata/spring/boot_security/demo/services/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/resources/templates/admin/adduser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/resources/templates/admin/adminPanel.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/resources/templates/admin/updateuser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/main/resources/templates/user/user.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PP_3_1_2_Boot_Security-master/src/test/java/ru/kata/spring/boot_security/demo/configs/WebSecurityConfigTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/dataSources/e261c9c0-9670-4d9e-ae55-fa05976dc9e1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/dataSources/e261c9c0-9670-4d9e-ae55-fa05976dc9e1/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/dataSources/e261c9c0-9670-4d9e-ae55-fa05976dc9e1/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/dataSources/e261c9c0-9670-4d9e-ae55-fa05976dc9e1/storage_v2/_src_/schema/test.kkQ2AA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/java/Kata_Academy/Spring/Boot/_2_5/controller/HelloController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/java/Kata_Academy/Spring/Boot/_2_5/controller/UsersController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/java/Kata_Academy/Spring/Boot/_2_5/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/java/Kata_Academy/Spring/Boot/_2_5/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/java/Kata_Academy/Spring/Boot/_2_5/service/UserServiceImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/resources/templates/updateuser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/src/main/resources/templates/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/controller/HelloController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/controller/UsersController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/service/UserServiceImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/templates/adduser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/templates/updateuser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/Spring-Boot-3_2_5-main/target/classes/templates/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/src/main/java/Kata_Academy/Spring/Boot/_2_5/dao/UserDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/src/main/java/Kata_Academy/Spring/Boot/_2_5/dao/UserDaoImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/src/main/resources/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/src/main/resources/templates/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/src/test/java/Kata_Academy/Spring/Boot/_2_5/SpingBoot325ApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/SpringBoot325Application.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/controller/HelloController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/dao/UserDaoImp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/model/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/Kata_Academy/Spring/Boot/_2_5/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/templates/adduser.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/templates/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring-Boot-3_2_5-main/target/classes/templates/users.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringMVC_Hibernate" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringMVC_Hibernate1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_boot-3.2.5/.idea/cody_history.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_boot-3.2.5/.idea/easycode.ignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_boot-3.2.5/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_boot-3.2.5/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Spring_boot-3.2.5/target/classes/kata_academy/Spring_boot325/Application.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/HELP.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/DemoApplication.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/target/classes/com/example/demo/controllers/HelloController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../demo/target/classes/templates/hello.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../manning-smia" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph-6.0.12.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/index.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/node-linux-x64" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/node-macos-arm64" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/node-win-x64.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-bash.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-c.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-css.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-elm.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-html.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-java.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-json.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-kotlin.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-lua.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-objc.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-python.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-rescript.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-rust.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-scala.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter-tsx.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/tree-sitter.wasm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/agent/win-ca-roots.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/lib/commonmark-ext-gfm-tables-0.22.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/lib/error_prone_annotations-2.27.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/lib/gson-2.11.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/lib/instrumented-Sourcegraph-6.0.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../plagin/Sourcegraph/lib/searchableOptions-6.0.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/NOTICE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/README.markdown" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/entities/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/entities/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/entities/OrderLine.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/entities/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/entities/repositories/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/services/CustomerService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/services/ProductService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/business/util/CalendarUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/controller/IGTVGController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/controller/OrderDetailsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/controller/OrderListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/controller/ProductCommentsController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/controller/ProductListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/controller/SubscribeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/controller/UserProfileController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/filter/GTVGFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/java/thymeleafexamples/gtvg/web/mapping/ControllerMappings.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/resources/log4j.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/home.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/home_de.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/home_es.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/home_gl.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/home_nl.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/home_pt.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/order/details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/order/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/product/list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/subscribe.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/WEB-INF/templates/userprofile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../thymeleafexamples-gtvg-3.1-master-jakarta/src/main/webapp/css/gtvg.css" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodyActiveAccount">
+    <option name="activeAccountId" value="VXNlcjo0OTM2ODQ=" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Dockerfile" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2leuxUEFlUanX0Gfw7TiF4SIABw" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.spring-boot_REST-demo [org.apache.maven.plugins:maven-resources-plugin:3.2.0:copy-resources].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.CodyAccountHistoryMigration": "true",
+    "RunOnceActivity.CodyAccountsIdsRefresh": "true",
+    "RunOnceActivity.CodyAssignOrphanedChatsToActiveAccount": "true",
+    "RunOnceActivity.CodyConvertUrlToCodebaseName": "true",
+    "RunOnceActivity.CodyHistoryLlmMigration": "true",
+    "RunOnceActivity.CodyMigrateChatHistory-v2": "true",
+    "RunOnceActivity.CodyProjectSettingsMigration": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.ToggleCodyToolWindowAfterMigration": "true",
+    "Spring Boot.SpringBootSecurityDemoApplication (1).executor": "Run",
+    "Spring Boot.SpringBootSecurityDemoApplication.executor": "Run",
+    "Spring Boot.SpringRESTApplication.executor": "Run",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_directory_selection": "C:/Users/user/Desktop/MAURIN/3_1_4_REST-controllers/src/test/java/REST_controller",
+    "last_opened_file_path": "C:/Users/user/Downloads/3_1_4_REST-controllers-main (1)/3_1_4_REST-controllers-main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.43930635",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\MAURIN\3_1_4_REST-controllers\src\main\resources\templates\user" />
+      <recent name="C:\Users\user\Desktop\MAURIN\3_1_4_REST-controllers\src\main\resources\templates" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringRESTApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="spring-boot_REST-demo" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="REST_controller.demo.SpringRESTApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="REST_controller.demo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.SpringRESTApplication" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="start">
+      <option name="closed" value="true" />
+      <created>1725469175418</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1725469175418</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="000ec36a-a0e3-4da4-ad9c-21e61aaada3d" name="Changes" comment="start" />
+      <created>1725553112507</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1725553112507</updated>
+      <workItem from="1725553113625" duration="8133000" />
+      <workItem from="1725565661988" duration="2788000" />
+      <workItem from="1726083786191" duration="3569000" />
+      <workItem from="1726157263600" duration="8553000" />
+      <workItem from="1726420385883" duration="8878000" />
+      <workItem from="1726504321212" duration="13548000" />
+      <workItem from="1726589922896" duration="13085000" />
+      <workItem from="1726677551658" duration="11129000" />
+      <workItem from="1726762351554" duration="14372000" />
+      <workItem from="1726924185503" duration="15519000" />
+      <workItem from="1726944803240" duration="5525000" />
+      <workItem from="1726989344823" duration="13972000" />
+      <workItem from="1727108083250" duration="13403000" />
+      <workItem from="1727202568004" duration="3854000" />
+      <workItem from="1727368314191" duration="8901000" />
+      <workItem from="1727533718884" duration="10449000" />
+      <workItem from="1727612597160" duration="19488000" />
+      <workItem from="1727715432114" duration="12248000" />
+      <workItem from="1727800843309" duration="9833000" />
+      <workItem from="1727972041614" duration="15430000" />
+      <workItem from="1728116920793" duration="3224000" />
+      <workItem from="1728120167128" duration="31439000" />
+      <workItem from="1728236222492" duration="5624000" />
+      <workItem from="1728241877572" duration="5567000" />
+      <workItem from="1728319596780" duration="11410000" />
+      <workItem from="1728405048897" duration="16152000" />
+      <workItem from="1728492509293" duration="10533000" />
+      <workItem from="1728503072475" duration="7557000" />
+      <workItem from="1728580039390" duration="14735000" />
+      <workItem from="1728750190408" duration="18132000" />
+      <workItem from="1728808568163" duration="2171000" />
+      <workItem from="1728815247142" duration="20334000" />
+      <workItem from="1728842198123" duration="7790000" />
+      <workItem from="1730105991891" duration="682000" />
+      <workItem from="1730129244587" duration="12498000" />
+      <workItem from="1730220323878" duration="5905000" />
+      <workItem from="1730822866448" duration="12066000" />
+      <workItem from="1730909469370" duration="7422000" />
+      <workItem from="1733078647556" duration="7881000" />
+      <workItem from="1733156264748" duration="4484000" />
+      <workItem from="1733160976053" duration="69000" />
+      <workItem from="1733161101579" duration="1015000" />
+      <workItem from="1733162510559" duration="726000" />
+      <workItem from="1733163456872" duration="380000" />
+      <workItem from="1733165197094" duration="834000" />
+      <workItem from="1733242092559" duration="1150000" />
+      <workItem from="1733246402579" duration="3000" />
+      <workItem from="1733246428390" duration="417000" />
+    </task>
+    <task id="LOCAL-00002" summary="REST API">
+      <option name="closed" value="true" />
+      <created>1726510753753</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1726510753753</updated>
+    </task>
+    <task id="LOCAL-00003" summary="error">
+      <option name="closed" value="true" />
+      <created>1726518079976</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1726518079976</updated>
+    </task>
+    <task id="LOCAL-00004" summary="fixed">
+      <option name="closed" value="true" />
+      <created>1726599182820</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726599182820</updated>
+    </task>
+    <task id="LOCAL-00005" summary="add JS in user.html">
+      <option name="closed" value="true" />
+      <created>1726690109875</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1726690109875</updated>
+    </task>
+    <task id="LOCAL-00006" summary=" JS - tableUsers in  adminPanel.html">
+      <option name="closed" value="true" />
+      <created>1727008250235</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727008250235</updated>
+    </task>
+    <task id="LOCAL-00007" summary=" JS - tableUsers in  adminPanel.html">
+      <option name="closed" value="true" />
+      <created>1727013401364</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727013401364</updated>
+    </task>
+    <task id="LOCAL-00008" summary=" JS - tableUsers in  adminPanel.html and switchPanel">
+      <option name="closed" value="true" />
+      <created>1727720044356</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1727720044356</updated>
+    </task>
+    <task id="LOCAL-00009" summary=" switching the new user panel to users table and config roles">
+      <option name="closed" value="true" />
+      <created>1727808513612</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1727808513612</updated>
+    </task>
+    <task id="LOCAL-00010" summary="delete User">
+      <option name="closed" value="true" />
+      <created>1728120097381</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1728120097381</updated>
+    </task>
+    <task id="LOCAL-00011" summary="delete User">
+      <option name="closed" value="true" />
+      <created>1728328222520</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1728328222520</updated>
+    </task>
+    <task id="LOCAL-00012" summary="error">
+      <option name="closed" value="true" />
+      <created>1728330332389</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1728330332389</updated>
+    </task>
+    <task id="LOCAL-00013" summary="error">
+      <option name="closed" value="true" />
+      <created>1728581352831</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1728581352831</updated>
+    </task>
+    <task id="LOCAL-00014" summary="error">
+      <option name="closed" value="true" />
+      <created>1728586673532</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1728586673532</updated>
+    </task>
+    <task id="LOCAL-00015" summary="error">
+      <option name="closed" value="true" />
+      <created>1728594087875</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1728594087875</updated>
+    </task>
+    <task id="LOCAL-00016" summary="commit delete">
+      <option name="closed" value="true" />
+      <created>1728844431134</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1728844431134</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="start" />
+    <MESSAGE value="REST API" />
+    <MESSAGE value="fixed" />
+    <MESSAGE value="add JS in user.html" />
+    <MESSAGE value=" JS - tableUsers in  adminPanel.html" />
+    <MESSAGE value=" JS - tableUsers in  adminPanel.html and switchPanel" />
+    <MESSAGE value=" switching the new user panel to users table and config roles" />
+    <MESSAGE value="delete User" />
+    <MESSAGE value="error" />
+    <MESSAGE value="commit delete" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit delete" />
+  </component>
+  <component name="XDebuggerManager">
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="jdk.proxy2.$Proxy103" memberName="h" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>
